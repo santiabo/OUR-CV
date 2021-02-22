@@ -10,15 +10,17 @@ export const Nav = styled.nav`
   justify-content: center;
   margin-left:5%;
   margin-bottom:10px;
+  /*border: 1px solid black;*/
+  border-radius:5px;
 `;
 
 export const Summary = styled.h2`
  font-size: 1.5rem;
- font-family: Roboto;
+ font-family: Montserrat;
  text-decoration: underline;
 `;
 
 export const StyledP = styled.p`
  font-size: 1rem;
- font-family: Roboto;
+ font-family: Montserrat;
 `;

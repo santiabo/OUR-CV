@@ -9,11 +9,13 @@ export const Nav = styled.nav`
   margin-left:20%;
   flex-direction: column;
   justify-content: space-around;
+  /*border: 1px solid black;*/
+  border-radius:5px;
   
 `;
 export const Education = styled.h2`
  font-size: 1.5rem;
- font-family: Roboto;
+ font-family: Montserrat;
  text-decoration: underline;
 `;
 

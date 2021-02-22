@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 
 export const Nav = styled.nav` 
-  font-family: Roboto; 
+  font-family: Montserrat; 
   background: #0D070C;
   color: white;
   width: 100%;

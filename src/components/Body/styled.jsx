@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Nav = styled.div` 
   background: #0D070C;
-  font-family: Roboto;
+  font-family: Montserrat;
   display:flex;
   justify-content: center;
   flex-direction: row;
@@ -14,7 +14,7 @@ export const Nav = styled.div`
 
 export const Container1 = styled.div` 
   background: #0D070C;
-  font-family: Roboto;
+  font-family: Montserrat;
   height: 100%;
   width: 60%;
   display: flex;

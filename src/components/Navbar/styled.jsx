@@ -76,7 +76,7 @@ flex-direction: column;
 
 export const Title = styled.div`
 color: #EDE8EC;
-font-family: Roboto;
+font-family: Montserrat;
 font-style: normal;
 font-weight: normal;
 font-size:40px;
@@ -87,12 +87,12 @@ margin-left: 30px;
 
 export const SubTitle = styled.div`
 color: #EDE8EC;
-font-family: Roboto;
+font-family: Montserrat;
 font-style: normal;
 font-weight: normal;
 font-size:26px;
 line-height: 28px;
 margin-left: 30px;
-margin-top:5px;
+margin-top:15px;
 `;
 
