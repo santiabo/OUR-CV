@@ -1,15 +1,11 @@
 import React from "react";
 import { Field, Form } from "react-final-form";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {changeName} from '../../redux/actions/user';
-
-
-
 
 const UserForm = () => {
 
   const dispatch = useDispatch();
-
   const handleSubmit1 = (formObj) => {
     console.log(formObj);
     dispatch(changeName(formObj))

@@ -1,8 +1,8 @@
-import React from 'react'
-import {RiHomeGearLine} from 'react-icons/ri'
+import React from 'react';
+import { RiHomeGearLine } from 'react-icons/ri';
 import { IconContext } from "react-icons";
-import SkillCard from '../SkillCard/index'
-import { Nav, Skills } from './styled'
+import SkillCard from '../SkillCard/index';
+import { Nav, Skills } from './styled';
 
 let skills = [
   {
@@ -24,21 +24,24 @@ let skills = [
   }];
 
 const SkillsBox = () => {
+
+  var ID = function () {
+    return Math.random().toString(36).substr(2, 9);
+  };
+
   return (
     <>
-
       <Nav>
-      <IconContext.Provider value={{ color: "#3e4f4d", size: "1.1em" }}>
-        <Skills><RiHomeGearLine /> Skills </Skills>
-        {skills.map(i => <SkillCard
-          skillArea={i.skillArea}
-          skillTool={i.skillTool}
-        />)}
+        <IconContext.Provider value={{ color: "#3e4f4d", size: "1.1em" }}>
+          <Skills><RiHomeGearLine /> Skills </Skills>
+          {skills.map(i => <SkillCard 
+            key={ID()}
+            skillArea={i.skillArea}
+            skillTool={i.skillTool}
+          />)}
         </IconContext.Provider>
       </Nav>
-
     </>
-
   )
 }
 

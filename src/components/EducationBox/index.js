@@ -8,32 +8,35 @@ let formations = [{
   title: "Full stack Developer",
   place: "Soy Henry",
   date: " Feb 2021 - Argentina",
- }, 
+},
 {
   title: "JavaScript Algorithms and Data Structures",
   place: "freeCodeCamp",
   date: " Feb 2021 - Argentina",
- }]
+}]
 
-const ExperienceBox = () => {
+const EducationBox = () => {
+
+  var ID = function () {
+    return Math.random().toString(36).substr(2, 9);
+  };
+
   return (
     <>
-
       <Nav>
-      <IconContext.Provider value={{ color: "#567289", size: "1.1em" }}>
-      <Education> <FaGraduationCap /> Education</Education>
-        {formations.map(i => <EducationCard
-          title={i.title}
-          place={i.place}
-          date={i.date}
-          info={i.info}
-        />)}
+        <IconContext.Provider value={{ color: "#567289", size: "1.1em" }}>
+          <Education> <FaGraduationCap /> Education</Education>
+          {formations.map(i => <EducationCard
+            key={ID()}
+            title={i.title}
+            place={i.place}
+            date={i.date}
+            info={i.info}
+          />)}
         </IconContext.Provider>
       </Nav>
-
     </>
-
   )
 }
 
-export default ExperienceBox
+export default EducationBox

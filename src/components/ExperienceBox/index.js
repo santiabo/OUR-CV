@@ -15,7 +15,7 @@ let experiences = [{
           - Used passport Local and Bearer strategy with Json web token for
            verifying the user login to site. And Bcrypt for encrypting the
   password in the database.`
-}, 
+},
 {
   position: "Full stack Developer",
   place: "Soy Henry",
@@ -30,23 +30,26 @@ let experiences = [{
 }]
 
 const ExperienceBox = () => {
+
+  var ID = function () {
+    return Math.random().toString(36).substr(2, 9);
+  };
+
   return (
     <>
-
       <Nav>
-      <IconContext.Provider value={{ color: "#e39556", size: "1.1em" }}>
-      <Experience> <CgWorkAlt /> Experience</Experience>
-        {experiences.map(i => <ExperienceCard
-          position={i.position}
-          place={i.place}
-          date={i.date}
-          info={i.info}
-        />)}
+        <IconContext.Provider value={{ color: "#e39556", size: "1.1em" }}>
+          <Experience> <CgWorkAlt /> Experience</Experience>
+          {experiences.map(i => <ExperienceCard 
+            key={ID()}
+            position={i.position}
+            place={i.place}
+            date={i.date}
+            info={i.info}
+          />)}
         </IconContext.Provider>
       </Nav>
-
     </>
-
   )
 }
 

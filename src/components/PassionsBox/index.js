@@ -21,13 +21,18 @@ let passions = [
 ];
 
 const PassionsBox = () => {
+
+  var ID = function () {
+    return Math.random().toString(36).substr(2, 9);
+  };
+
   return (
     <>
 
       <Nav>
         <IconContext.Provider value={{ color: '#8b4033', size: "1.1em" }}>
           <Passions> <FaRegHeart /> Passions</Passions>
-          {passions.map(i => <StyledP>
+          {passions.map(i => <StyledP key={ID()}>
           <br></br>
             {i.description}
           </StyledP>)}

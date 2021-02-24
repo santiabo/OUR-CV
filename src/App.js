@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { GlobalStyle } from './globalStyles';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Home from '../src/pages/index'
