@@ -1,19 +1,36 @@
-import React from 'react'
-import { FaBars } from 'react-icons/fa'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { FaBars } from 'react-icons/fa';
 import { Nav, NavbarContainer, MobileIcon, Title, MyImage, TitleContainer, SubTitle } from './styled'
-
 import ContactCard from '../ContactCard';
-const Navbar = ({ toggle }) => {
+import Modal from "../ModalUser";
+import useModal from '../ModalUser/useModal';
+
+
+
+
+const Navbar = ({ }) => {
+  const name = useSelector((state) => state.user.user.name);
+  const title = useSelector((state) => state.user.user.title);
+  const { isShowing, toggle } = useModal();
+
+
+
   return (
     <>
       <Nav>
         <NavbarContainer>
+          <MyImage />
           <TitleContainer>
-            <Title>Santiago Aguirre</Title>
-            <SubTitle>Full stack developer</SubTitle>
+            <Title onClick={toggle} >{name}</Title>
+            <SubTitle>{title}</SubTitle>
             <ContactCard />
           </TitleContainer>
-          <MyImage />
+
+          <Modal
+            isShowing={isShowing}
+            hide={toggle}
+          />
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>

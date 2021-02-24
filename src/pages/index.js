@@ -1,10 +1,18 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/sidebar'
 import Body from '../components/Body'
 import Footer from '../components/Footer'
 
+
 const Home = () => {
+
+  const dispatch = useDispatch();
+
+/*   useEffect(() => {
+		dispatch(getUser());
+	},[]); */
 
   const [isOpen, setIsOpen] = useState(false);
 
