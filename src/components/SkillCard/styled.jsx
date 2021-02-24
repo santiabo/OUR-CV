@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Nav = styled.nav` 
-  font-family: Montserrat; 
+  ; 
   background: #0D070C;
   color: white;
   display:flex;
@@ -16,13 +16,13 @@ export const Nav = styled.nav`
 
 export const H1 = styled.p`
  font-size: 1.2rem;
- font-family: Montserrat;
+ ;
  text-decoration: underline;
 `;
 
 export const StyledP = styled.p`
  font-size: 1rem;
- font-family: Montserrat;
+ ;
 `;
 
 export const StyledBr = styled.p`

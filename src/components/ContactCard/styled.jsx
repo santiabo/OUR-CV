@@ -22,7 +22,7 @@ flex-direction: row;
 width: 100%;
 margin-top:10px;
 margin-left:15px;
-font-family: Montserrat;
+;
 
 @media screen and (max-width: 768px) {
   display:none;
@@ -31,7 +31,7 @@ font-family: Montserrat;
 `;
 
 export const NavLinks = styled.a`
-font-family: Montserrat;
+;
 color: white;
 display: flex;
 text-decoration: none;

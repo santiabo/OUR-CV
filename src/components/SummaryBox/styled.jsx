@@ -4,23 +4,23 @@ export const Nav = styled.nav`
   background: #0D070C;
   color: white;
   display:flex;
-  width: 50%;
+  
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  margin-left:5%;
-  margin-bottom:10px;
+ 
+  margin-bottom:20px;
   /*border: 1px solid black;*/
   border-radius:5px;
 `;
 
 export const Summary = styled.h2`
  font-size: 1.5rem;
- font-family: Montserrat;
+ ;
  text-decoration: underline;
 `;
 
 export const StyledP = styled.p`
  font-size: 1rem;
- font-family: Montserrat;
+ ;
 `;

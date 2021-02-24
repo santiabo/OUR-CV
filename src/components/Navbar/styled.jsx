@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import myImage from '../../images/myImage.jpg';
+import myImage from '../../images/willie2.png';
 
 
 export const Nav = styled.nav` 
@@ -7,10 +7,7 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
  
-  top:0;
-  z-index: 10;
 
   @media screen and (max-width:96) {
     transition: 0.8s all ease;
@@ -19,12 +16,13 @@ export const Nav = styled.nav`
 
 export const NavbarContainer = styled.div`
 display:flex;
-justify-content: space-between;
+justify-content: flex-start;;
+align-items: start;
 margin-top:30px;
 z-index: 1;
 width: 75%;
-padding: 0 24px;
-max-width: 1100px;
+${'' /* padding: 0 24px; */}
+
 `;
 
 export const MobileIcon = styled.div`
@@ -48,10 +46,9 @@ display: flex;
 align-items:center;
 text-decoration: none;
 padding: 0 1rem;
-height: 100%;
+
 cursor:pointer;
-margin-top: 10px;
-margin-left: 5px;
+
 
 &:hover {
   color: #01bf71;
@@ -64,8 +61,6 @@ width: 105px;
 height: 105px;
 border-radius: 27px;
 margin-bottom: 20px;
-margin-right: 100px;
-
 `;
 
 export const TitleContainer = styled.div`
@@ -76,12 +71,12 @@ flex-direction: column;
 
 export const Title = styled.div`
 color: #EDE8EC;
-font-family: Montserrat;
 font-style: normal;
 font-weight: normal;
 font-size:40px;
 line-height: 28px;
 margin-left: 30px;
+cursor: pointer;
 
 `;
 
