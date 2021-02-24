@@ -2,7 +2,10 @@ import React from 'react';
 import { IconContext } from "react-icons";
 import { FaGraduationCap } from "react-icons/fa";
 import EducationCard from '../EducationCard/index';
-import { Nav, Education } from './styled';
+import { Nav, Education, Icon } from './styled';
+import Modal from "../ModalEducation";
+import useModal from '../ModalEducation/useModal';
+import { useSelector } from 'react-redux';
 
 let formations = [{
   title: "Full stack Developer",
@@ -17,16 +20,26 @@ let formations = [{
 
 const EducationBox = () => {
 
+  const education = useSelector((state) => state.user.education);
+
+  const { isShowing, toggle } = useModal();
+
   var ID = function () {
     return Math.random().toString(36).substr(2, 9);
   };
 
+  
+
   return (
     <>
       <Nav>
+      <Modal
+          isShowing={isShowing}
+          hide={toggle}
+        />
         <IconContext.Provider value={{ color: "#567289", size: "1.1em" }}>
-          <Education> <FaGraduationCap /> Education</Education>
-          {formations.map(i => <EducationCard
+          <Education><Icon><FaGraduationCap onClick={toggle} /></Icon>Education</Education>
+          {education.map(i => <EducationCard
             key={ID()}
             title={i.title}
             place={i.place}

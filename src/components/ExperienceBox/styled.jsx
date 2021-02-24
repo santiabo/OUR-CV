@@ -15,9 +15,22 @@ export const Nav = styled.nav`
   
 `;
 export const Experience = styled.h2`
+ display:flex;
  font-size: 1.5rem;
- ;
  text-decoration: underline;
+ 
+`;
+export const Icon = styled.h2`
+ font-size: 1.7rem;
+ text-decoration: underline;
+ cursor:pointer;
+ margin-right:15px;
+ 
+
+ &:hover {
+  border-left: 1px solid black; #01bf71;
+  margin-right: 3px;
+  
 `;
 
 
