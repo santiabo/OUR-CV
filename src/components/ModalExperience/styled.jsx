@@ -68,4 +68,3 @@ export const CloseButton = styled.div`
   padding: .3rem 1rem;
   margin-left: .5rem;
 ` */
-

@@ -7,40 +7,27 @@ export const Nav = styled.nav`
   flex-direction: column;
   justify-content: space-around;
   margin-bottom:20px;
-  /*border: 1px solid black;*/
   border-radius:5px;
-  
 `;
 
 export const Skills = styled.h2`
  display:flex;
  font-size: 1.5rem;
- ;
  align-items: flex-start; 
  text-decoration: underline;
+
+`;
+
+export const Icon = styled.h2`
+ font-size: 1.7rem;
+ text-decoration: underline;
+ cursor:pointer;
+ margin-right:15px;
  
-`;
 
-export const H1 = styled.p`
- font-size: 1.2rem;
- ;
- text-decoration: underline;
-`;
-
-export const H2 = styled.p`
- font-size: 1.2rem;
- ;
- text-decoration: underline;
-`;
-
-export const H3 = styled.h3`
- font-size: 0.8rem;
- ;
-`;
-
-export const StyledP = styled.p`
- font-size: 1rem;
- ;
+ &:hover {
+  border-left: 1px solid black; #01bf71;
+  margin-right: 3px;
 `;
 
 
