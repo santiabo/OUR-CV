@@ -6,8 +6,8 @@ import { changeName } from '../../redux/actions/user';
 import { Input, Button } from './styled'
 import useModal from '../ModalUser/useModal';
 
-const UserForm = () => {
-
+const UserForm = (props) => {
+ 
   const name = useSelector((state) => state.user.name);
   const title = useSelector((state) => state.user.title);
   const email = useSelector((state) => state.user.email);
@@ -16,10 +16,13 @@ const UserForm = () => {
 
   const dispatch = useDispatch();
   const handleSubmit1 = (formObj) => {
+    /* formObj.preventDefault(); */
+    console.log("CACA")
     dispatch(changeName(formObj))
   }
 
   const { toggle } = useModal();
+  const { handleClose } = props;
 
   return (
     <Form
@@ -74,7 +77,7 @@ const UserForm = () => {
               />
             )}
           </Field>
-          <Button type="submit" onSubmit={toggle}>Submit</Button>
+          <Button type="submit" onSubmit={toggle} onClick={handleClose} >Submit</Button>
         </form>
       )}
     </Form>
