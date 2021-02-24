@@ -21,7 +21,7 @@ export const ModalWrapper = styled.div`
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;
-  opacity: .8;
+  opacity: 0.9;
 `
 
 export const Modal1 = styled.div`
@@ -36,7 +36,7 @@ export const Modal1 = styled.div`
 
 export const ModalHeader = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 `
 
 export const CloseButton = styled.div`
@@ -47,7 +47,13 @@ export const CloseButton = styled.div`
   opacity: .3;
   cursor: pointer;
   border: none;
+  font-size:2.2rem;
  `
+ export const H2 = styled.p`
+ display: flex;
+ font-size: 1.3rem;
+ text-decoration: underline;
+`;
 /* 
  export const ModalOverlay = styled.div`
   font-size: .9rem;

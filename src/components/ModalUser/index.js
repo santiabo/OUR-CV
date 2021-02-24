@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ModalOverlay, ModalWrapper, Modal1, ModalHeader, CloseButton } from './styled'
+import { ModalOverlay, ModalWrapper, Modal1, ModalHeader, CloseButton, H2 } from './styled'
 import  UserForm from '../UserForm'
 
 const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
@@ -9,6 +9,7 @@ const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
     <ModalWrapper >
       <Modal1>
         <ModalHeader>
+        <H2>Personal Information</H2>
           <CloseButton onClick={hide}>
             <span aria-hidden="true">&times;</span>
           </CloseButton>

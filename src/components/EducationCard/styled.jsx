@@ -14,12 +14,10 @@ export const Nav = styled.nav`
 
 export const H1 = styled.p`
  font-size: 1.3rem;
- ;
 `;
 
 export const H2 = styled.p`
  font-size: 1.2rem;
- ;
  text-decoration: underline;
 `;
 

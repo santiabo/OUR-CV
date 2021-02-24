@@ -1,7 +1,8 @@
 import React from "react";
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
-import {changeName} from '../../redux/actions/user';
+import { changeName } from '../../redux/actions/user';
+import { Input, Button } from './styled'
 
 const UserForm = () => {
 
@@ -22,7 +23,7 @@ const UserForm = () => {
         <form onSubmit={handleSubmit}>
           <Field name="name">
             {({ input }) => (
-              <input
+              <Input
                 placeholder="Name"
                 type="text"
                 {...input}
@@ -31,7 +32,7 @@ const UserForm = () => {
           </Field>
           <Field name="title">
             {({ input }) => (
-              <input
+              <Input
                 placeholder="Title"
                 type="text"
                 {...input}
@@ -40,7 +41,7 @@ const UserForm = () => {
           </Field>
           <Field name="email">
             {({ input }) => (
-              <input
+              <Input
                 placeholder="Email"
                 type="email"
                 {...input}
@@ -49,7 +50,7 @@ const UserForm = () => {
           </Field>
           <Field name="mobile">
             {({ input }) => (
-              <input
+              <Input
                 placeholder="Mobile"
                 type="text"
                 {...input}
@@ -58,14 +59,14 @@ const UserForm = () => {
           </Field>
           <Field name="city">
             {({ input }) => (
-              <input
+              <Input
                 placeholder="City"
                 type="text"
                 {...input}
               />
             )}
           </Field>
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </form>
       )}
     </Form>
