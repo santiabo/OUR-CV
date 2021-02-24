@@ -9,8 +9,8 @@ import useModal from '../ModalUser/useModal';
 
 const Navbar = () => {
 
-  const name = useSelector((state) => state.user.user.name);
-  const title = useSelector((state) => state.user.user.title);
+  const name = useSelector((state) => state.user.name);
+  const title = useSelector((state) => state.user.title);
   const { isShowing, toggle } = useModal();
 
   return (
@@ -28,9 +28,6 @@ const Navbar = () => {
             isShowing={isShowing}
             hide={toggle}
           />
-          <MobileIcon onClick={toggle}>
-            <FaBars />
-          </MobileIcon>
         </NavbarContainer>
       </Nav>
     </>

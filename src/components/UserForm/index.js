@@ -1,17 +1,25 @@
 import React from "react";
+import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
 import { changeName } from '../../redux/actions/user';
 import { Input, Button } from './styled'
+import useModal from '../ModalUser/useModal';
 
 const UserForm = () => {
 
+  const name = useSelector((state) => state.user.name);
+  const title = useSelector((state) => state.user.title);
+  const email = useSelector((state) => state.user.email);
+  const mobile = useSelector((state) => state.user.mobile);
+  const city = useSelector((state) => state.user.city);
+
   const dispatch = useDispatch();
   const handleSubmit1 = (formObj) => {
-    console.log(formObj);
     dispatch(changeName(formObj))
-
   }
+
+  const { toggle } = useModal();
 
   return (
     <Form
@@ -24,7 +32,7 @@ const UserForm = () => {
           <Field name="name">
             {({ input }) => (
               <Input
-                placeholder="Name"
+                placeholder={name}
                 type="text"
                 {...input}
               />
@@ -33,7 +41,7 @@ const UserForm = () => {
           <Field name="title">
             {({ input }) => (
               <Input
-                placeholder="Title"
+                placeholder={title}
                 type="text"
                 {...input}
               />
@@ -42,7 +50,7 @@ const UserForm = () => {
           <Field name="email">
             {({ input }) => (
               <Input
-                placeholder="Email"
+                placeholder={email}
                 type="email"
                 {...input}
               />
@@ -51,7 +59,7 @@ const UserForm = () => {
           <Field name="mobile">
             {({ input }) => (
               <Input
-                placeholder="Mobile"
+                placeholder={mobile}
                 type="text"
                 {...input}
               />
@@ -60,13 +68,13 @@ const UserForm = () => {
           <Field name="city">
             {({ input }) => (
               <Input
-                placeholder="City"
+                placeholder={city}
                 type="text"
                 {...input}
               />
             )}
           </Field>
-          <Button type="submit">Submit</Button>
+          <Button type="submit" onSubmit={toggle}>Submit</Button>
         </form>
       )}
     </Form>
