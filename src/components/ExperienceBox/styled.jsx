@@ -20,7 +20,7 @@ export const Experience = styled.h2`
  text-decoration: underline;
  
 `;
-export const Icon = styled.h2`
+export const Icon = styled.p`
  font-size: 1.7rem;
  text-decoration: underline;
  cursor:pointer;

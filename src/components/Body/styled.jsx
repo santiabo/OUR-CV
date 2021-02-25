@@ -4,23 +4,20 @@ export const Nav = styled.div`
   background: #0D070C;
   display: flex;
   justify-content: center;
-  align-items: center;
-
-
-  @media screen and (max-width:96) {
-    transition: 0.8s all ease;
-  }
+  align-items: start;
 `;
 
 export const BodyContainer = styled.div`
 display:flex;
 justify-content: space-between;;
 align-items: start;
-margin-top:30px;
 z-index: 1;
-width: 75%;
-${'' /* padding: 0 24px; */}
+width: 85%;
 
+@media screen and (max-width: 768px) {
+    width: 90%;
+    flex-direction:column-reverse;
+  }
 `;
 
 export const Container1 = styled.div` 
@@ -48,7 +45,8 @@ export const Container2 = styled.div`
  
 
   @media screen and (max-width: 768px) {
-    display:none;
+    width: 100%;
+    margin-bottom: 30px;
   }
 `;
 

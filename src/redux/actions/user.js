@@ -12,10 +12,10 @@ export const changeName = (user) => {
   }
 };
 
-export const changeExperience = (user) => {
+export const changeExperience = (experience) => {
   return {
     type: CHANGE_EXPERIENCE,
-    user
+    experience
   }
 };
 

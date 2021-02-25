@@ -1,26 +1,21 @@
 import styled from "styled-components"
-import myImage from '../../images/willie2.png';
+import myImage from '../../images/avatar.png';
 
 
 export const Nav = styled.nav` 
   background: #0D070C;
   display: flex;
-  justify-content: center;
+  flex-direction:column;
   align-items: center;
- 
-
-  @media screen and (max-width:96) {
-    transition: 0.8s all ease;
-  }
 `;
 
 export const NavbarContainer = styled.div`
 display:flex;
-justify-content: flex-start;;
-align-items: start;
+justify-content: flex-start;
+align-items: center;
 margin-top:30px;
 z-index: 1;
-width: 75%;
+width: 85%;
 ${'' /* padding: 0 24px; */}
 
 `;
@@ -57,37 +52,44 @@ cursor:pointer;
 
 export const MyImage = styled.div`
 background-image: url(${myImage});
-width: 105px;
-height: 105px;
-border-radius: 27px;
+width: 150px;
+height: 150px;
+border-radius: 15px;
 margin-bottom: 20px;
 `;
 
 export const TitleContainer = styled.div`
 display:flex;
-justify-content: flex-start;
+justify-content: flex-end;
 flex-direction: column;
+width:80%;
+
+@media screen and (max-width: 768px) {
+  width:50%;
+  margin-bottom: 20px;
+  }
 `;
 
 export const Title = styled.div`
 color: #EDE8EC;
-font-style: normal;
-font-weight: normal;
-font-size:40px;
-line-height: 28px;
+font-size:42px;
 margin-left: 30px;
 cursor: pointer;
 
+@media screen and (max-width: 768px) {
+  font-size:38px;
+    }
 `;
 
 export const SubTitle = styled.div`
 color: #EDE8EC;
-font-family: Montserrat;
-font-style: normal;
-font-weight: normal;
 font-size:26px;
-line-height: 28px;
 margin-left: 30px;
 margin-top:15px;
+
+@media screen and (max-width: 768px) {
+  font-size:22px;
+  
+  }
 `;
 

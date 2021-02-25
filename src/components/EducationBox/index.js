@@ -7,17 +7,6 @@ import Modal from "../ModalEducation";
 import useModal from '../ModalEducation/useModal';
 import { useSelector } from 'react-redux';
 
-let formations = [{
-  title: "Full stack Developer",
-  place: "Soy Henry",
-  date: " Feb 2021 - Argentina",
-},
-{
-  title: "JavaScript Algorithms and Data Structures",
-  place: "freeCodeCamp",
-  date: " Feb 2021 - Argentina",
-}]
-
 const EducationBox = () => {
 
   const education = useSelector((state) => state.user.education);

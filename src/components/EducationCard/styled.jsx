@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   color: white;
   display:flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: stretch;
  /*/*border: 1px solid black;*/*/
   border-radius:5px;

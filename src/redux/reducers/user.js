@@ -88,7 +88,7 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   const user = action.user;
-
+  const experience = action.experience;
   switch (action.type) {
     case CHANGE_NAME:
       return {
@@ -98,12 +98,12 @@ const userReducer = (state = initialState, action) => {
     case CHANGE_EXPERIENCE:
       return {
         ...state,
-        user
+        ...experience
       };
     case CHANGE_EDUCATION:
       return {
         ...state,
-        user: {...state}
+        user: { ...state }
       };
     case CHANGE_SUMMARY:
       return {

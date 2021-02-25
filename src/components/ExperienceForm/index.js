@@ -26,7 +26,7 @@ const UserForm = (props) => {
   }
 
   const { toggle } = useModal();
-  const { handleClose } = props;
+  /* const { handleClose } = props; */
 
   return (
       <Form
@@ -36,7 +36,7 @@ const UserForm = (props) => {
       >
         {({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
-            <Field name="experience[0].position">
+            <Field name="position">
               {({ input }) => (
                 <Input
                   placeholder={position0}
