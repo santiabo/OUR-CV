@@ -16,7 +16,10 @@ align-items: center;
 margin-top:30px;
 z-index: 1;
 width: 85%;
-${'' /* padding: 0 24px; */}
+
+@media screen and (max-width: 768px) {
+flex-direction: column;
+  }
 
 `;
 
@@ -36,7 +39,7 @@ export const MobileIcon = styled.div`
 `;
 
 export const NavLinks = styled.a`
-color: #black;
+color: black;
 display: flex;
 align-items:center;
 text-decoration: none;
@@ -56,6 +59,8 @@ width: 150px;
 height: 150px;
 border-radius: 15px;
 margin-bottom: 20px;
+
+
 `;
 
 export const TitleContainer = styled.div`
@@ -67,6 +72,9 @@ width:80%;
 @media screen and (max-width: 768px) {
   width:50%;
   margin-bottom: 20px;
+  align-itmes: top;
+  justify-content: flex-start;
+  text-align: center;
   }
 `;
 
@@ -78,6 +86,8 @@ cursor: pointer;
 
 @media screen and (max-width: 768px) {
   font-size:38px;
+  margin-left: 0px;
+  align-items: center;
     }
 `;
 
@@ -89,6 +99,7 @@ margin-top:15px;
 
 @media screen and (max-width: 768px) {
   font-size:22px;
+  margin-left: 0px;
   
   }
 `;
