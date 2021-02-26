@@ -11,19 +11,22 @@ export const Nav = styled.nav`
   
   flex-direction: column;
   align-items: stretch;
-  justify-content: center;
+  justify-content: flex-end;
  
   font-size: 1rem;
   top:0;
   z-index: 10;
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
   
 `;
 
 export const LinksBox= styled.div`
 display:flex;
-width: 100%;
-justify-content: center;
-flex-direction: row;
+width: 90%;
+justify-content: end;
+flex-direction: row-reverse;
 flex-wrap: wrap;
 
 

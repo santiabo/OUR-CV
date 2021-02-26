@@ -20,7 +20,7 @@ const ContactCard = () => {
         <LinksBox>
           <IconContext.Provider value={{ color: "white", size: "1.1em" }}>
             <NavLinks to="about"><FiMail /> &nbsp; {email}</NavLinks>
-            <NavLinks to="about"><FaWhatsapp /> &nbsp; {mobile}</NavLinks>
+            <NavLinks href="https://api.whatsapp.com/send?phone=541166735627"><FaWhatsapp /> &nbsp; {mobile}</NavLinks>
             <NavLinks href=""><MdPlace /> &nbsp; {city} </NavLinks>
           </IconContext.Provider>
         </LinksBox>

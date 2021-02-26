@@ -22,7 +22,7 @@ const UserForm = (props) => {
   }
 
   const { toggle } = useModal();
-  const { handleClose } = props;
+ /*  const { handleClose } = props; */
 
   return (
       <Form

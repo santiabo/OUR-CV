@@ -18,7 +18,7 @@ export const Skills = styled.h2`
 
 `;
 
-export const Icon = styled.h2`
+export const Icon = styled.p`
  font-size: 1.7rem;
  text-decoration: underline;
  cursor:pointer;
