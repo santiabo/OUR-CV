@@ -13,10 +13,6 @@ const SkillsBox = () => {
 
   const { isShowing, toggle } = useModal();
 
-  var ID = function () {
-    return Math.random().toString(36).substr(2, 9);
-  };
-
   return (
     <>
       <Nav>
@@ -27,9 +23,9 @@ const SkillsBox = () => {
         <IconContext.Provider value={{ color: "#3e4f4d", size: "1.1em" }}>
           <Skills><Icon> <RiHomeGearLine onClick={toggle} /></Icon> Skills </Skills>
           {skills.map(i => <SkillCard
-            key={ID()}
-            skillArea={i.skillArea}
-            skillTool={i.skillTool}
+            key={i.id}
+            skillArea={i.area}
+            skillTool={i.tools}
           />)}
         </IconContext.Provider>
       </Nav>

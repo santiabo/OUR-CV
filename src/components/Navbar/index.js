@@ -12,6 +12,8 @@ const Navbar = () => {
   const title = useSelector((state) => state.user.title);
   const { isShowing, toggle } = useModal();
 
+ 
+
   return (
     <>
       <Nav>

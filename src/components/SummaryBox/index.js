@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 const SummaryBox = () => {
   
-  const summary = useSelector((state) => state.user.summary);
+  const summary = useSelector((state) => state.user.summary.description);
 
   const { isShowing, toggle } = useModal();
 

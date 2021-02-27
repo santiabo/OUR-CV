@@ -8,6 +8,7 @@ import useModal from '../ModalUser/useModal';
 
 const UserForm = (props) => {
 
+  const id = useSelector((state)=> state.user.id)
   const name = useSelector((state) => state.user.name);
   const title = useSelector((state) => state.user.title);
   const email = useSelector((state) => state.user.email);
@@ -15,10 +16,9 @@ const UserForm = (props) => {
   const city = useSelector((state) => state.user.city);
 
   const dispatch = useDispatch();
-  const handleSubmit1 = (formObj) => {
+  const handleSubmit1 = (formObj, id) => {
     /* formObj.preventDefault(); */
-    console.log("CACA")
-    dispatch(changeName(formObj))
+    dispatch(changeName(formObj, id))
   }
 
   const { toggle } = useModal();
@@ -27,7 +27,7 @@ const UserForm = (props) => {
   return (
       <Form
         onSubmit={formObj => {
-          handleSubmit1(formObj);
+          handleSubmit1(formObj, id);
         }}
       >
         {({ handleSubmit }) => (

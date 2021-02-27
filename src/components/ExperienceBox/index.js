@@ -9,7 +9,7 @@ import useModal from '../ModalExperience/useModal';
 
 const ExperienceBox = () => {
 
-  const experience = useSelector((state) => state.user.experience);
+  const experiences = useSelector((state) => state.user.experiences);
 
   var ID = function () {
     return Math.random().toString(36).substr(2, 9);
@@ -26,7 +26,7 @@ const ExperienceBox = () => {
         />
         <IconContext.Provider value={{ color: "#e39556", size: "1.1em" }}>
           <Experience><Icon> <CgWorkAlt onClick={toggle} /></Icon>Experience</Experience>
-          {experience.map(i => <ExperienceCard
+          {experiences.map(i => <ExperienceCard
             key={ID()}
             position={i.position}
             place={i.place}
