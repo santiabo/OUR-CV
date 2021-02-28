@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ModalOverlay, ModalWrapper, Modal1, ModalHeader, CloseButton, H2 } from './styled'
-import UserForm from '../UserForm'
+import SkillsForm from '../SkillsForm'
 
 const Modal = ({ isShowing, hide }) => {
 
@@ -22,7 +22,7 @@ const Modal = ({ isShowing, hide }) => {
                 <span aria-hidden="true">&times;</span>
               </CloseButton>
             </ModalHeader>
-            <UserForm handleClose={handleClose} />
+            <SkillsForm handleClose={handleClose} />
           </Modal1>
         </ModalWrapper>
       </React.Fragment>, document.body
