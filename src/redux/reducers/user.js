@@ -1,5 +1,3 @@
-import update from 'react-addons-update';
-
 import {
   GET_USER,
   CHANGE_NAME,
@@ -7,7 +5,8 @@ import {
   CHANGE_EDUCATION,
   CHANGE_SUMMARY,
   CHANGE_SKILLS,
-  CHANGE_PASSIONS
+  CHANGE_PASSIONS,
+  CHANGE_AVATAR
 } from '../actions/user';
 
 const initialState = {
@@ -77,7 +76,7 @@ const initialState = {
 
 
 const userReducer = (state = initialState, action) => {
-  const { user, experience, education, summary, skill, passion} = action;
+  const { user, experience, education, summary, skill, passion, avatar} = action;
 
   switch (action.type) {
     case GET_USER:
@@ -115,6 +114,11 @@ const userReducer = (state = initialState, action) => {
         ...state,
         ...passion
       };
+      case CHANGE_AVATAR:
+        return {
+          ...state,
+          avatar
+        };
 
     default:
       return state;

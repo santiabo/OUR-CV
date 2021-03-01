@@ -7,6 +7,7 @@ export const CHANGE_EDUCATION = "CHANGE_EDUCATION";
 export const CHANGE_SUMMARY = "CHANGE_SUMMARY";
 export const CHANGE_SKILLS = "CHANGE_SKILLS";
 export const CHANGE_PASSIONS = "CHANGE_PASSIONS";
+export const CHANGE_AVATAR = "CHANGE_AVATAR";
 
 export const getUserData = (user) => {
   return {
@@ -54,6 +55,13 @@ export const putPassion = (passion) => {
   return {
     type: CHANGE_PASSIONS,
     passion
+  }
+};
+
+export const putAvatar = (avatar) => {
+  return {
+    type: CHANGE_AVATAR,
+    avatar
   }
 };
 
@@ -130,6 +138,19 @@ export const changePassion = (formObj, id) => {
     try {
       const res = await axios.put(`http://localhost:3001/passions/${id}`, formObj);
       dispatch(putPassion(res.data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const changeAvatar = (avatar, id) => {
+  return async (dispatch) => {
+    try {
+      avatar = {avatar};
+      const res = await axios.put(`http://localhost:3001/user/avatar/${id}`, avatar);
+     
+      dispatch(putAvatar(res.data.avatar));
     } catch (err) {
       console.log(err);
     }

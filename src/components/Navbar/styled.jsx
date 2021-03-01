@@ -1,6 +1,4 @@
 import styled from "styled-components"
-import myImage from '../../images/avatar.png';
-
 
 export const Nav = styled.nav` 
   background: #0D070C;
@@ -53,11 +51,12 @@ cursor:pointer;
 }
 `;
 
-export const MyImage = styled.div`
-background-image: url(${myImage});
+export const MyImage = styled.img`
 width: 150px;
 height: 150px;
-border-radius: 15px;
+cursor: pointer;
+border-color: black;
+border-radius: 100px;
 margin-bottom: 20px;
 
 

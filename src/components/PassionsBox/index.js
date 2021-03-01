@@ -12,6 +12,10 @@ const PassionsBox = () => {
   const passions = useSelector((state) => state.user.passions);
   const { isShowing, toggle } = useModal();
 
+  var ID = function () {
+    return Math.random().toString(36).substr(2, 9);
+  };
+
   return (
     <>
 
@@ -22,7 +26,7 @@ const PassionsBox = () => {
         />
         <IconContext.Provider value={{ color: '#8b4033', size: "1.1em" }}>
           <Passions> <Icon><FaRegHeart onClick={toggle} /></Icon>Passions</Passions>
-          {passions.map(i => <StyledP key={i.id}>
+          {passions.map(i => <StyledP key={ID()}>
             <br></br>
             {i.description}
           </StyledP>)}
