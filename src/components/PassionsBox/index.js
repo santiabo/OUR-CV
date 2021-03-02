@@ -27,6 +27,7 @@ const PassionsBox = () => {
         <IconContext.Provider value={{ color: '#8b4033', size: "1.1em" }}>
           <Passions> <Icon><FaRegHeart onClick={toggle} /></Icon>Passions</Passions>
           {passions.map(i => <StyledP key={ID()}>
+            
             <br></br>
             {i.description}
           </StyledP>)}

@@ -1,19 +1,26 @@
 import styled from "styled-components"
 
 export const Nav = styled.nav` 
-  background: #0D070C;
+  background: #393e46;
   display: flex;
+`;
+
+export const BorderDiv = styled.div` 
+  background-color:#EEEEEE;
+  display: flex;
+  width: 100%;
   flex-direction:column;
   align-items: center;
 `;
 
 export const NavbarContainer = styled.div`
+background-color:#EEEEEE;
 display:flex;
-justify-content: flex-start;
-align-items: center;
-margin-top:30px;
-z-index: 1;
+flex-direcion: row;
+justify-content: space-around;
+align-items: start;
 width: 85%;
+margin-top:64px;
 
 @media screen and (max-width: 768px) {
 flex-direction: column;
@@ -21,52 +28,23 @@ flex-direction: column;
 
 `;
 
-export const MobileIcon = styled.div`
- display:none;
-
- @media screen and (max-width: 768px) {
-   display:block;
-   positin:absolute;
-   top: 0;
-   right: 0;
-   transform: translate(-100, 60%);
-   font-size: 1.8rem;
-   cursor:pointer;
-   color: white;
- }
-`;
-
-export const NavLinks = styled.a`
-color: black;
-display: flex;
-align-items:center;
-text-decoration: none;
-padding: 0 1rem;
-
-cursor:pointer;
-
-
-&:hover {
-  color: #01bf71;
-}
-`;
-
 export const MyImage = styled.img`
 width: 150px;
 height: 150px;
+min-width:150px;
 cursor: pointer;
-border-color: black;
+border: 2px solid black;
 border-radius: 100px;
 margin-bottom: 20px;
-
-
 `;
 
 export const TitleContainer = styled.div`
+background-color:#EEEEEE;
 display:flex;
 justify-content: flex-end;
 flex-direction: column;
-width:80%;
+margin-left: 40px;
+width:70%;
 
 @media screen and (max-width: 768px) {
   width:50%;
@@ -78,9 +56,10 @@ width:80%;
 `;
 
 export const Title = styled.div`
-color: #EDE8EC;
+color: #eeeee;
+
+
 font-size:42px;
-margin-left: 30px;
 cursor: pointer;
 
 @media screen and (max-width: 768px) {
@@ -91,9 +70,9 @@ cursor: pointer;
 `;
 
 export const SubTitle = styled.div`
-color: #EDE8EC;
+background-color:#EEEEEE;
+width:100%;
 font-size:26px;
-margin-left: 30px;
 margin-top:15px;
 
 @media screen and (max-width: 768px) {

@@ -4,7 +4,7 @@ import EducationBox from '../EducationBox'
 import PassionsBox from '../PassionsBox'
 import SkillsBox from '../SkillsBox'
 import SummaryBox from '../SummaryBox'
-import { Nav, Container1, Container2, BodyContainer } from './styled'
+import { Nav, Container1, Container2, BodyContainer, BodyWrapper } from './styled'
 
 const Body = () => {
   return (
@@ -12,6 +12,7 @@ const Body = () => {
 
       <Nav>
         <BodyContainer>
+        <BodyWrapper>
           <Container1>
             <ExperienceBox />
             <EducationBox />
@@ -21,6 +22,7 @@ const Body = () => {
             <SkillsBox />
             <PassionsBox />
           </Container2>
+          </BodyWrapper>
         </BodyContainer>
       </Nav>
 

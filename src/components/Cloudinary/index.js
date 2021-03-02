@@ -10,6 +10,7 @@ import { changeAvatar } from '../../redux/actions/user';
 const ImagePicker = () => {
 
   const id = useSelector((state)=> state.user.id)
+  const avatar1 =useSelector((state) => state.user.avatar)
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState("")
 
@@ -40,12 +41,12 @@ const ImagePicker = () => {
           loading ? (
             <h3 > Loading...</h3>
           ) : (
-              <img alt="Avatar" src={image} style={{ width: '300px' }} />
+              <img alt="Avatar" src={image ? image : avatar1} style={{ width: '300px' }} />
             )
         }
       </nav>
       <nav>
-        <input type="button" onClick={handleClick}> </input>
+        <input type="button" onClick={handleClick}/>
       </nav>
     </>
   )

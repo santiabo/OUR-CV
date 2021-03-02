@@ -9,8 +9,8 @@ const Footer = () => {
 
       <Nav>
         <LinksBox>
-          <IconContext.Provider value={{ color: "white", size: "1.1em" }}>
-            <NavLinks to="about"><FiMail /></NavLinks>
+          <IconContext.Provider value={{ color: "#0D070C", size: "1.3em" }}>
+            <NavLinks href="mailto:santiabo@gmail.com?subject=Hello !"><FiMail /></NavLinks>
             <NavLinks href="https://api.whatsapp.com/send?phone=541166735627"><FaWhatsapp /></NavLinks>
             <NavLinks href="https://www.linkedin.com/in/santiago--aguirre/"> <FaLinkedinIn /></NavLinks>
             <NavLinks href="https://github.com/santiabo"> <FaGithub /></NavLinks>

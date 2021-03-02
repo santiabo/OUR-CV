@@ -1,18 +1,29 @@
 import styled from "styled-components"
 
 export const Nav = styled.div` 
-  background: #0D070C;
+  background: #393e46;
   display: flex;
   justify-content: center;
   align-items: start;
 `;
 
 export const BodyContainer = styled.div`
+flex-direction:column;
+background: #eeeeee;
 display:flex;
-justify-content: space-between;;
-align-items: start;
+align-items: center;
 z-index: 1;
+width: 100%;
+`;
+
+export const BodyWrapper = styled.div` 
+background: #eeeeee;
+display:flex;
+margin-top:30px;
+justify-content: space-around;;
+align-items: start;
 width: 85%;
+margin-bottom:65px;
 
 @media screen and (max-width: 768px) {
     width: 90%;
@@ -21,8 +32,7 @@ width: 85%;
 `;
 
 export const Container1 = styled.div` 
-  background: #0D070C;
-  ;
+  background: #eeeeee;
   height: 100%;
   width: 60%;
   display: flex;
@@ -36,10 +46,9 @@ export const Container1 = styled.div`
 `;
 
 export const Container2 = styled.div` 
-  background: 0D0100;
+  background: #eeeeee;
   width: 30%;
   display: flex;
-  margin-right: 40px;
   justify-content: space-around;
   flex-direction: column;
  

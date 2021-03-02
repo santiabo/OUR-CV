@@ -2,14 +2,14 @@ import styled from "styled-components"
 
 export const Nav = styled.nav` 
   ; 
-  background: #0D070C;
-  color: white;
+  background: #EEEEEE;
+  color: #0D070C;
   display:flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
- /*/*border: 1px solid black;*/*/
-  border-radius:5px;
+  
+
 `;
 
 export const H1 = styled.p`

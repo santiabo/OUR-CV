@@ -12,18 +12,17 @@ const ContactCard = () => {
   const email = useSelector((state) => state.user.email);
   const mobile = useSelector((state) => state.user.mobile);
   const city = useSelector((state) => state.user.city);
- 
-  
+
+
   return (
     <>
-      <Nav>
+      <Nav> <IconContext.Provider value={{ color: "#0D070C", size: "1.1em" }}>
         <LinksBox>
-          <IconContext.Provider value={{ color: "white", size: "1.1em" }}>
-            <NavLinks to="about"><FiMail /> &nbsp; {email}</NavLinks>
-            <NavLinks href="https://api.whatsapp.com/send?phone=541166735627"><FaWhatsapp /> &nbsp; {mobile}</NavLinks>
-            <NavLinks href=""><MdPlace /> &nbsp; {city} </NavLinks>
-          </IconContext.Provider>
+          <NavLinks href="mailto:santiabo@gmail.com?subject=Hello !"><FiMail /> &nbsp; {email}</NavLinks>
+          <NavLinks href="https://api.whatsapp.com/send?phone=541166735627"><FaWhatsapp /> &nbsp; {mobile}</NavLinks>
+          <NavLinks href=""><MdPlace /> &nbsp; {city} </NavLinks>
         </LinksBox>
+      </IconContext.Provider>
       </Nav>
     </>
   )

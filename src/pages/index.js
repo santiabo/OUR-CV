@@ -1,10 +1,10 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import Sidebar from '../components/sidebar'
-import Body from '../components/Body'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import PrinterWrapper from '../components/PDF2'
+import React from 'react';
+import Navbar from '../components/Navbar';
+import Body from '../components/Body';
+import Footer from '../components/Footer';
+import PrinterWrapper from '../components/PDF2';
+import { Nav, Nav2 } from './syled';
+import Header from '../components/Header';
 
 
 
@@ -15,13 +15,17 @@ const Home = () => {
 
   return (
     <>
-      <PrinterWrapper>
-        <Header />
-        <Sidebar />
-        <Navbar />
-        <Body />
-        <Footer />
-      </PrinterWrapper>
+      <Nav>
+      <Header />
+      <Nav2>
+        <PrinterWrapper>
+          <Navbar />
+          <Body />
+        </PrinterWrapper>
+        </Nav2>
+      </Nav>
+      <Footer />
+
     </>
   )
 }
