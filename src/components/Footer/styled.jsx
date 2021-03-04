@@ -16,23 +16,27 @@ export const Nav = styled.nav`
 export const LinksBox = styled.div`
 background: #00adb5;
 display:flex;
+
 width: 100%;
-justify-content: center;
+
 flex-direction: row;
-align-items: center;
-flex-wrap: wrap;
+justify-content: center;
+align-items: flex-start;
 `;
+
 
 export const NavLinks = styled.a`
 display: flex;
-align-items:center;
+height: 50px;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
 text-decoration: none;
 padding: 0 1rem;
-height: 100%;
 cursor:pointer;
-margin-top: 10px;
-margin-bottom: 10px;
 &:hover {
-  color: #01bf71;
+  background: #393e46;
 }
 `;
+
+

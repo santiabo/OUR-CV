@@ -3,22 +3,17 @@ import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
 import { changeExperience } from '../../redux/actions/user';
-import { Input, Button } from './styled'
+import { Input, Button, Input2 } from './styled'
 import useModal from '../ModalUser/useModal';
 
-const UserForm = (props) => {
+const UserForm = () => {
 
   const experiences = useSelector((state) => state.user.experiences)
-
   const dispatch = useDispatch();
   const handleSubmit1 = (formObj, id) => {
-    console.log("OBJ", formObj, "ID", id)
     dispatch(changeExperience(formObj, id))
   }
-
   const { toggle } = useModal();
-  /* const { handleClose } = props; */
-
 
   return (
     <>
@@ -60,7 +55,7 @@ const UserForm = (props) => {
                 </Field>
                 <Field name="info">
                   {({ input }) => (
-                    <Input
+                    <Input2
                       placeholder={e.info}
                       type="text"
                       {...input}
@@ -72,7 +67,7 @@ const UserForm = (props) => {
             )}
           </Form>
         )
-      };
+      }
     </>
   );
 };

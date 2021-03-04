@@ -12,12 +12,12 @@ export const ModalOverlay = styled.div`
 `
 
 export const ModalWrapper = styled.div`
+  display:flex;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1050;
   width: 100%;
-  height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;
@@ -25,15 +25,19 @@ export const ModalWrapper = styled.div`
 `
 
 export const Modal1 = styled.div`
+  display:flex;
+  flex-direction:column;
   z-index: 100;
-  background: grey;
-  opacity: 0.9;
+  background: #EEEEEE;
+  opacity: 1;
   position: relative;
   margin: 1.75rem auto;
+  border-color:grey;
   border-style: solid; 
-  border-width: 2px;
-  border-radius: 10px;
-  max-width: 500px;
+  border-width: 1px;
+  border-radius: 5px;
+  max-width: 400px;
+  min-height:500px;
   padding: 2rem;
 `
 
@@ -51,6 +55,9 @@ export const CloseButton = styled.div`
   cursor: pointer;
   border: none;
   font-size:2.2rem;
+  &:hover {
+  color: #00adb5;
+  }
  `
  export const H2 = styled.p`
  display: flex;

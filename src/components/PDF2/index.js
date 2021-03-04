@@ -1,22 +1,28 @@
-import React, { useRef } from "react";
-import ReactToPrint from "react-to-print";
-import { Nav } from './styled'
+import React, { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import ReactToPrint, { useReactToPrint } from "react-to-print";
+import { Nav } from './styled';
 
 export default function PrinterWrapper({ children }) {
-  const linkToPrint = () => {
-    return (
-      <button>Save / Print </button>
-    )
-  }
+
+  const print = useSelector((state) => state.print.printing)
+  useEffect(() => {
+    handlePrint()
+  },[print]);
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
   const componentRef = useRef();
   return (
     <>
       <Nav>
-        <ReactToPrint trigger={linkToPrint} content={() => componentRef.current} />
+        <ReactToPrint content={() => componentRef.current} />
         <div ref={componentRef}>
           {children}
         </div>
       </Nav>
     </>
-  );
-}
+  )
+};

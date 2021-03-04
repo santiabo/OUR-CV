@@ -14,15 +14,16 @@ const UserForm = (props) => {
   const email = useSelector((state) => state.user.email);
   const mobile = useSelector((state) => state.user.mobile);
   const city = useSelector((state) => state.user.city);
-
+  
   const dispatch = useDispatch();
   const handleSubmit1 = (formObj, id) => {
-    /* formObj.preventDefault(); */
     dispatch(changeName(formObj, id))
   }
 
   const { toggle } = useModal();
- /*  const { handleClose } = props; */
+
+
+
 
   return (
       <Form
@@ -63,7 +64,7 @@ const UserForm = (props) => {
               {({ input }) => (
                 <Input
                   placeholder={mobile}
-                  type="text"
+                  type="tel"
                   {...input}
                 />
               )}

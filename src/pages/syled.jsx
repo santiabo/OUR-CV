@@ -14,3 +14,9 @@ export const Nav2 = styled.nav`
   display: flex;
 
 `;
+
+export const Div = styled.div` 
+  background: #393e46;
+  width:100%;
+  display: flex;
+`;

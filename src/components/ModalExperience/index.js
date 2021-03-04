@@ -4,7 +4,8 @@ import { ModalOverlay, ModalWrapper, Modal1, ModalHeader, CloseButton, H2 } from
 import ExperienceForm from '../ExperienceForm'
 
 const Modal = ({ isShowing, hide }) => {
-
+ 
+	
   const handleClose = (e) => {
     hide();
   }
@@ -18,11 +19,11 @@ const Modal = ({ isShowing, hide }) => {
           <Modal1>
             <ModalHeader>
               <H2>Experience Information</H2>
-              <CloseButton onClick={hide}>
+              <CloseButton onClick={ hide}>
                 <span aria-hidden="true">&times;</span>
               </CloseButton>
             </ModalHeader>
-            <ExperienceForm handleClose={handleClose} />
+            <ExperienceForm handleClose={ handleClose}/>
           </Modal1>
         </ModalWrapper>
       </React.Fragment>, document.body

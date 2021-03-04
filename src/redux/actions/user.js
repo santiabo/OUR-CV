@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const GET_USER = "GET_USER"
+
 export const CHANGE_NAME = "CHANGE_NAME";
 export const CHANGE_EXPERIENCE = "CHANGE_EXPERIENCE";
 export const CHANGE_EDUCATION = "CHANGE_EDUCATION";
@@ -27,6 +28,7 @@ export const putExperience = (experience) => {
   return {
     type: CHANGE_EXPERIENCE,
     experience
+  
   }
 };
 

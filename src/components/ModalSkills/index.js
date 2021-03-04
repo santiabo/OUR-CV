@@ -17,7 +17,7 @@ const Modal = ({ isShowing, hide }) => {
         <ModalWrapper >
           <Modal1>
             <ModalHeader>
-              <H2>Personal Information</H2>
+              <H2>Skills</H2>
               <CloseButton onClick={hide}>
                 <span aria-hidden="true">&times;</span>
               </CloseButton>

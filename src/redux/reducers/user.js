@@ -84,35 +84,59 @@ const userReducer = (state = initialState, action) => {
         ...state,
         ...user
       };
+
     case CHANGE_NAME:
       return {
         ...state,
         ...user
       };
-    case CHANGE_EXPERIENCE:
+
+    case CHANGE_EXPERIENCE:{
+      const index = state.experiences.findIndex(exp => exp.id === experience.id); //finding index of the item
+      const newArray = [...state.experiences]; //making a new array
+      newArray[index] = experience;//changing value in the new array
       return {
         ...state,
-        ...experience
-      };
+        experiences: newArray
+      }};
+
     case CHANGE_EDUCATION:
+      const index = state.education.findIndex(edu => edu.id === education.id); //finding index of the item
+      const newArray = [...state.education]; //making a new array
+      newArray[index] = education;//changing value in the new array
       return {
         ...state,
-        ...education
+        education: newArray
       };
+
     case CHANGE_SUMMARY:
-      return {
+    const newObj ={...state.summary}; 
+    newObj.description = summary[0].description; 
+    return {
         ...state,
-        ...summary
+        summary: newObj
       };
+
     case CHANGE_SKILLS:
+      const indecs = state.skills.findIndex(s=> s.id === skill.id); 
+      const newSkills = [...state.skills]; 
+      newSkills[indecs] = skill;
+
       return {
         ...state,
-        ...skill
+        skills: newSkills
       };
+
     case CHANGE_PASSIONS:
+
+      const indes = state.passions.findIndex(p => p.id === passion.id); 
+      const newPassion = [...state.passions]; 
+      newPassion[indes] = passion;
+
+
       return {
         ...state,
-        ...passion
+        passions: newPassion
       };
       case CHANGE_AVATAR:
         return {

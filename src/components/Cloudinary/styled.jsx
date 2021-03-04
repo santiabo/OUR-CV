@@ -1,23 +1,25 @@
 import styled from "styled-components";
 
+export const Nav = styled.nav`
+display: flex;
+flex-direction:column;
+align-items: center;
 
+`;
 
-export const Input = styled.textarea`
+export const Input = styled.input`
   width: 100%;
-  background-color: #FFF;
   color: black;
   padding: 14px 20px;
   margin: 8px 0;
-  border:1px solid #000;
-  border-radius: 4px;
-  cursor: text;
+  cursor: pointer;
   font-size: 1rem;
   &::-webkit-input-placeholder {
     color: black;
 `
+
 export const Button = styled.button`
-  margin-top:25px;
-  margin-left:140px;
+margin-top:30px;
   box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
 	background-color:#ffffff;

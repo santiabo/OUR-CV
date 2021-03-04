@@ -30,15 +30,7 @@ const PassionsForm = (props) => {
           >
             {({ handleSubmit }) => (
               <form onSubmit={handleSubmit}>
-                <Field name="area">
-                  {({ input }) => (
-                    <Input
-                      placeholder={e.area}
-                      type="text"
-                      {...input}
-                    />
-                  )}
-                </Field>
+            
                 <Field name="description">
                   {({ input }) => (
                     <Input
@@ -53,7 +45,7 @@ const PassionsForm = (props) => {
             )}
           </Form>
         )
-      };
+      }
     </>
   );
 };

@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { changeSkill } from '../../redux/actions/user';
 import { Input, Button } from './styled'
 import useModal from '../ModalUser/useModal';
+import { Input2 } from "../ExperienceForm/styled";
 
 const SkillsForm = (props) => {
 
@@ -41,8 +42,8 @@ const SkillsForm = (props) => {
                 </Field>
                 <Field name="tools">
                   {({ input }) => (
-                    <Input
-                      placeholder={e.place}
+                    <Input2
+                      placeholder={e.tools}
                       type="text"
                       {...input}
                     />
@@ -50,10 +51,11 @@ const SkillsForm = (props) => {
                 </Field>
                 <Button type="submit" onSubmit={toggle} >Save changes</Button>
               </form>
-            )}
+            )}         
           </Form>
+         
         )
-      };
+      }
     </>
   );
 };

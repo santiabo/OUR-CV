@@ -3,9 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeAvatar } from '../../redux/actions/user';
-/* import { Nav, NavbarContainer, Title, MyImage, TitleContainer, SubTitle } from './styled'; */
-
-
+import { Input, Button, Nav } from './styled'
 
 const ImagePicker = () => {
 
@@ -35,19 +33,18 @@ const ImagePicker = () => {
  
   return (
     <>
-      <nav>
-        <input type="file" name="file" placeholder="Change picture" onChange={uploadImage} />
+      <Nav>
+        <Input type="file" name="file"  onChange={uploadImage} />
         {
           loading ? (
             <h3 > Loading...</h3>
           ) : (
-              <img alt="Avatar" src={image ? image : avatar1} style={{ width: '300px' }} />
+              <img alt="Avatar" src={image ? image : avatar1} style={{ width: '300px', border: "1px solid grey", borderRadius: "5px" }} />
             )
         }
-      </nav>
-      <nav>
-        <input type="button" onClick={handleClick}/>
-      </nav>
+
+        <Button type="button" onClick={handleClick}> change picture</Button>
+      </Nav>
     </>
   )
 };

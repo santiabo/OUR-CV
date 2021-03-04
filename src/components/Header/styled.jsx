@@ -4,21 +4,25 @@ import styled from "styled-components"
 export const Nav = styled.nav` 
   width: 100%;
   height: 50px;
-  display:flex;
-
-  @media screen and (max-width: 768px) {
-    justify-content: center;
-  
+  display:flex; 
+  border-bottom: 1px solid #0e111c;
 `;
 
 export const LinksBox= styled.div`
-border-radius: 2px;
 background: #222831;
 display:flex;
 width: 100%;
+
 flex-direction: row-reverse;
 flex-wrap: wrap;
+`;
 
+export const LinksBox2= styled.div`
+background: #222831;
+display:flex;
+width: 65px;
+flex-direction: row;
+flex-wrap: wrap;
 `;
 
 export const NavLinks = styled.a`
@@ -28,11 +32,27 @@ align-items:center;
 text-decoration: none;
 padding: 0 1rem;
 cursor:pointer;
-margin-top: 10px;
 margin-left: 5px;
+&:hover {
+ background: #00adb5;
+
+}
+`;
+
+export const BurgerDiv= styled.div`
+display:flex;
+align-items:center;
+justify-content: center;
+background: #222831;
+display:flex;
+cursor:pointer;
+width:70px;
+
+&:focus {
+    outline: none;
+  }
 
 &:hover {
-  /*border-bottom: 1px solid black; #01bf71;*/
-  color: #01bf71;
+ background: #00adb5;
 }
 `;

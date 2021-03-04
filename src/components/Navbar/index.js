@@ -25,7 +25,7 @@ const Navbar = () => {
       <Nav>
         <BorderDiv>
           <NavbarContainer>
-            <MyImage src={image} onClick={toggle1} />
+            <MyImage src={image} alt="Profile Pic" onClick={toggle1} />
             <TitleContainer>
               <Title onClick={toggle} >{name}</Title>
               <SubTitle>{title}</SubTitle>
