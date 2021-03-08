@@ -25,8 +25,7 @@ export const Button = styled.button`
 	border:2px solid #dcdcdc;
 	display:inline-block;
 	cursor:pointer;
-	color:#666666;
-	font-family:Arial;
+	color:#00adb5;
 	font-size:15px;
 	font-weight:bold;
 	padding:6px 24px;

@@ -2,13 +2,24 @@ import styled from "styled-components";
 
 
 
+export const Nav = styled.nav` 
+   background:#f6f6fe;
+  display:flex;
+  margin-top:15px;
+  border-radius:8px;
+  align-items: start;
+  justify-content:space-around;
+  border: 1px solid #aabbbf;
+ 
+`;
+
 export const Input = styled.input`
   width: 100%;
   background-color: #FFF;
   color: black;
   padding: 14px 20px;
-  margin: 8px 0;
-  border:1px solid #000;
+  margin: 8px 8px 8px 8px 0;
+  border:1px solid grey;
   border-radius: 4px;
   cursor: text;
   font-size: 1rem;
@@ -22,7 +33,7 @@ export const Input2 = styled.textarea`
   min-height: 180px;
   padding: 14px 20px;
   margin: 8px 0;
-  border:1px solid #000;
+  border:1px solid grey;
   border-radius: 4px;
   cursor: text;
   font-size: 1rem;
@@ -40,8 +51,7 @@ export const Button = styled.button`
 	border:2px solid #dcdcdc;
 	display:inline-block;
 	cursor:pointer;
-	color:#666666;
-	font-family:Arial;
+	color:#00adb5;
 	font-size:15px;
 	font-weight:bold;
 	padding:6px 24px;
@@ -52,3 +62,10 @@ export const Button = styled.button`
     background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
 	background-color:#f6f6f6;
 `
+export const H2 = styled.p`
+ display: flex;
+ font-size: 1rem;
+ font-weight: bold;
+ margin-top:10px;
+
+`;

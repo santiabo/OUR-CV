@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav, H1, H2, H3, StyledBr, StyledBr2 } from './styled'
+import { Nav, H1, H2, H3, Div } from './styled'
 
 
 const EducationCard = ({ title, place, date }) => {
@@ -7,13 +7,12 @@ const EducationCard = ({ title, place, date }) => {
     <>
 
       <Nav>
-        <StyledBr><br></br></StyledBr>
+
         <H1>{title}</H1>
-        <StyledBr2><br></br></StyledBr2>
-        <H2>{place}</H2>
-
-        <H3>{date}</H3>
-
+        <Div>
+          <H2>{place}</H2>
+          <H3>{date}</H3>
+        </Div>
       </Nav>
 
     </>

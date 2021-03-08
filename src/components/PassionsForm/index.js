@@ -3,12 +3,30 @@ import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
 import { changePassion } from '../../redux/actions/user';
-import { Input, Button } from './styled'
+import { Input, Button, H2, Nav, Input2, Div } from './styled'
 import useModal from '../ModalUser/useModal';
 
 const PassionsForm = (props) => {
 
-  const passions = useSelector((state) => state.user.passions)
+    //------Refactor------------------------------------------
+    const language = useSelector((state) => state.language.language);
+    const curriculums = useSelector((state) => state.user.curriculums);
+  
+    const index = () => {
+      let index = 0;
+      for (var i = 0; i < curriculums.length; i++) {
+        if (curriculums[i].language === language) index = i;
+      }
+      return index;
+    };
+  /* 
+    const title = () => {
+      if (language === "spanish") return "Experiencia";
+      if (language === "english") return "Experience";
+    } */
+    //-----------------------------------------------
+
+  const passions = useSelector((state) => state.user.curriculums[index()].passions)
 
   const dispatch = useDispatch();
   const handleSubmit1 = (formObj, id) => {
@@ -23,6 +41,7 @@ const PassionsForm = (props) => {
     <>
       {
         passions.map((e) =>
+        <Nav>
           <Form
             onSubmit={formObj => {
               handleSubmit1(formObj, e.id);
@@ -30,7 +49,17 @@ const PassionsForm = (props) => {
           >
             {({ handleSubmit }) => (
               <form onSubmit={handleSubmit}>
-            
+              <H2>{language === "spanish" ? "Categoria": "Category"}</H2>
+              <Field name="area">
+                  {({ input }) => (
+                    <Input2
+                      placeholder={e.area}
+                      type="text"
+                      {...input}
+                    />
+                  )}
+                </Field>
+                <H2>{language === "spanish" ? "Descripción": "Description"}</H2>
                 <Field name="description">
                   {({ input }) => (
                     <Input
@@ -44,6 +73,7 @@ const PassionsForm = (props) => {
               </form>
             )}
           </Form>
+          </Nav>
         )
       }
     </>

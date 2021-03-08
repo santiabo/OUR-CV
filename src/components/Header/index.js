@@ -1,12 +1,37 @@
 import React from 'react'
 import { bool, func } from 'prop-types';
 import { IconContext } from "react-icons";
-import { FaWhatsapp, FaLinkedinIn, FaGithub } from 'react-icons/fa'
-import { Nav, NavLinks, LinksBox, LinksBox2, BurgerDiv } from './styled'
-import { FiMail } from 'react-icons/fi';
+import { Nav, LinksBox, LinksBox2, BurgerDiv } from './styled'
+import { FcGoogle } from 'react-icons/fc';
 import { CgMenu } from 'react-icons/cg';
+import GoogleLogin, { GoogleLogout } from 'react-google-login'
+import { logOutUser } from '../../redux/actions/user';
+import { logInUser } from '../../redux/actions/logged';
+import { useDispatch } from 'react-redux';
 
 const Header = ({ open, setOpen }) => {
+
+  const dispatch = useDispatch();
+
+  const handleLogin = async googleData => {
+    console.log("GOOGLE DATA", googleData)
+    const res = await fetch("http://localhost:3001/auth/api/v1/auth/google", {
+      method: "POST",
+      body: JSON.stringify({
+        token: googleData.tokenId
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    const data = await res.json()
+    dispatch(logInUser(data)) 
+  };
+
+  const handleLogout = () => {
+    dispatch(logOutUser());
+  }
+
   return (
     <>
       <Nav>
@@ -19,11 +44,25 @@ const Header = ({ open, setOpen }) => {
           </IconContext.Provider>
         </LinksBox2>
         <LinksBox>
-          <IconContext.Provider value={{ color: "white", size: "1.1em" }}>
-            <NavLinks href="mailto:santiabo@gmail.com?subject=Hello !"><FiMail /></NavLinks>
-            <NavLinks href="https://api.whatsapp.com/send?phone=541166735627"><FaWhatsapp /></NavLinks>
-            <NavLinks href="https://www.linkedin.com/in/santiago--aguirre/"> <FaLinkedinIn /></NavLinks>
-            <NavLinks href="https://github.com/santiabo"> <FaGithub /></NavLinks>
+          <IconContext.Provider value={{ color: "white", size: "2em" }}>
+            <GoogleLogin
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+              render={renderProps => (
+                <button onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}><FcGoogle /></button>
+              )}
+              buttonText="Log in"
+              onSuccess={handleLogin}
+              onFailure={handleLogin}
+              cookiePolicy={'single_host_origin'}
+            
+            />
+            <GoogleLogout
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+              buttonText="Logout"
+              onLogoutSuccess={handleLogout}
+            >
+            </GoogleLogout>
           </IconContext.Provider>
         </LinksBox>
       </Nav>

@@ -29,7 +29,7 @@ export const Modal1 = styled.div`
   display:flex;
   flex-direction:column;
   z-index: 100;
-  background: #EEEEEE;
+  background:#FFF;
   opacity: 1;
   position: relative;
   margin: 1.75rem auto;
@@ -45,6 +45,7 @@ export const Modal1 = styled.div`
 export const ModalHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid black;
 `
 
 export const CloseButton = styled.div`

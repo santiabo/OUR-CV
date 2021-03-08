@@ -3,12 +3,29 @@ import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
 import { changeExperience } from '../../redux/actions/user';
-import { Input, Button, Input2 } from './styled'
+import { Input, Button, Input2, H2, Nav } from './styled'
 import useModal from '../ModalUser/useModal';
 
-const UserForm = () => {
+const ExperienceForm = () => {
+//------Refactor------------------------------------------
+  const language = useSelector((state) => state.language.language);
+  const curriculums = useSelector((state) => state.user.curriculums);
 
-  const experiences = useSelector((state) => state.user.experiences)
+  const index = () => {
+    let index = 0;
+    for (var i = 0; i < curriculums.length; i++) {
+      if (curriculums[i].language === language) index = i;
+    }
+    return index;
+  };
+
+   const title = () => {
+    if (language === "spanish") return "Guardar cambios";
+    if (language === "english") return "Save changes";
+  } 
+  //-----------------------------------------------
+
+  const experiences = useSelector((state) => state.user.curriculums[index()].experiences)
   const dispatch = useDispatch();
   const handleSubmit1 = (formObj, id) => {
     dispatch(changeExperience(formObj, id))
@@ -19,14 +36,17 @@ const UserForm = () => {
     <>
       {
         experiences.map((e) =>
+        <Nav>
           <Form
+            key={e.id}
             onSubmit={formObj => {
               handleSubmit1(formObj, e.id);
             }}
           >
             {({ handleSubmit }) => (
               <form onSubmit={handleSubmit}>
-                <Field name="position">
+              <H2>{language === "spanish" ? "Puesto": "Position"}</H2>
+                <Field key={e.id + "0"} name="position">
                   {({ input }) => (
                     <Input
                       placeholder={e.position}
@@ -35,7 +55,8 @@ const UserForm = () => {
                     />
                   )}
                 </Field>
-                <Field name="place">
+                <H2>{language === "spanish" ? "Companía": "Company"}</H2>
+                <Field key={e.id + "1"} name="place">
                   {({ input }) => (
                     <Input
                       placeholder={e.place}
@@ -44,7 +65,8 @@ const UserForm = () => {
                     />
                   )}
                 </Field>
-                <Field name="date">
+                <H2>{language === "spanish" ? "Fecha": "Date"}</H2>
+                <Field key={e.id + "2"} name="date">
                   {({ input }) => (
                     <Input
                       placeholder={e.date}
@@ -53,7 +75,8 @@ const UserForm = () => {
                     />
                   )}
                 </Field>
-                <Field name="info">
+                <H2>{language === "spanish" ? "Descripción": "Description"}</H2>
+                <Field key={e.id + "3"} name="info">
                   {({ input }) => (
                     <Input2
                       placeholder={e.info}
@@ -62,14 +85,15 @@ const UserForm = () => {
                     />
                   )}
                 </Field>
-                <Button type="submit" onSubmit={toggle} >Save changes</Button>
+                <Button type="submit" onSubmit={toggle} >{title()}</Button>
               </form>
             )}
           </Form>
+          </Nav>
         )
       }
     </>
   );
 };
 
-export default UserForm;
+export default ExperienceForm;

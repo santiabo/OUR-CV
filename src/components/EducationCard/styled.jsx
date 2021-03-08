@@ -1,15 +1,19 @@
 import styled from "styled-components"
 
 export const Nav = styled.nav` 
-  ; 
+  margin-bottom: 10px;
   background: #EEEEEE;
   color: #0D070C;
   display:flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: stretch;
-  
+`;
 
+export const Div = styled.div`
+ display:flex;
+ justify-content:space-between;
+ align-items: flex-end;
 `;
 
 export const H1 = styled.p`
@@ -23,15 +27,7 @@ export const H2 = styled.p`
 
 export const H3 = styled.h3`
  font-size: 0.8rem;
- ;
+ margin-right:30px;
 `;
 
-export const StyledBr = styled.p`
- font-size: 0.7rem;
- ;
-`;
 
-export const StyledBr2 = styled.p`
- font-size: 0.1rem;
- ;
-`;

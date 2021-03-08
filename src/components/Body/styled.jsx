@@ -19,11 +19,11 @@ width: 100%;
 export const BodyWrapper = styled.div` 
 background: #eeeeee;
 display:flex;
-margin-top:30px;
+margin-top:10px;
 justify-content: space-around;;
 align-items: start;
 width: 85%;
-margin-bottom:65px;
+margin-bottom:30px;
 
 @media screen and (max-width: 768px) {
     width: 90%;

@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 
-
 export const Input = styled.input`
   width: 100%;
   background-color: #FFF;
   color: black;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 5px 0;
   border:1px solid #000;
   border-radius: 4px;
   cursor: text;
@@ -38,3 +37,10 @@ export const Button = styled.button`
     background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
 	background-color:#f6f6f6;
 `
+export const H2 = styled.p`
+ display: flex;
+ font-size: 1rem;
+ font-weight: bold;
+ margin-top:10px;
+
+`;

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const GET_USER = "GET_USER"
-
+export const SET_AUTH_USER= "SET_AUTH_USER";
 export const CHANGE_NAME = "CHANGE_NAME";
 export const CHANGE_EXPERIENCE = "CHANGE_EXPERIENCE";
 export const CHANGE_EDUCATION = "CHANGE_EDUCATION";
@@ -9,6 +9,53 @@ export const CHANGE_SUMMARY = "CHANGE_SUMMARY";
 export const CHANGE_SKILLS = "CHANGE_SKILLS";
 export const CHANGE_PASSIONS = "CHANGE_PASSIONS";
 export const CHANGE_AVATAR = "CHANGE_AVATAR";
+export const  LOGIN_USER = "LOGIN_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
+export const AUTO_LOGIN = "AUTO_LOGIN";
+export const START_REQUEST  = "START_REQUEST";
+export const SUCCESS_REQUEST = "SUCCESS_REQUEST";
+
+
+const startRequest = () => {
+  return {
+    type: START_REQUEST
+  };
+};
+
+const successRequest = () => {
+  return {
+    type: SUCCESS_REQUEST,
+  };
+};
+
+const loginUser = (user) => {
+  return {
+    type: LOGIN_USER,
+    user
+  };
+};
+
+export const logOutUser = (user) => {
+  return {
+    type: LOGOUT_USER,
+    user
+  };
+};
+
+const autoLoginUser = (user) => {
+  return {
+    type: AUTO_LOGIN,
+    user
+  };
+};
+
+
+export const setUser = (user)=>{
+  return {
+    type: SET_AUTH_USER,
+    user
+  }
+}
 
 export const getUserData = (user) => {
   return {
@@ -66,6 +113,25 @@ export const putAvatar = (avatar) => {
     avatar
   }
 };
+
+export const logInUser = (user) => {
+  return async (dispatch) => {
+    try {
+       dispatch(startRequest());
+ /*      const res = await axios.post(`/auth/login`, { ...email, ...password });
+      const { token, user } = res.data;  */
+
+      dispatch(loginUser(user));
+/*       localStorage.setItem("token", token);
+      dispatch(addUserCart(user.id));*/
+      dispatch(successRequest());
+    } catch (err) {
+      alert(err.response.data) 
+/*       dispatch(setError(err)); */
+    }
+  };
+};
+
 
 
 export const getUser = (id) => {

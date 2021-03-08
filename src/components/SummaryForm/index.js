@@ -7,8 +7,24 @@ import { Input, Button } from './styled'
 import useModal from '../ModalUser/useModal';
 
 const SummaryForm = (props) => {
+  //------Refactor------------------------------------------
+  const language = useSelector((state) => state.language.language);
+  const curriculums = useSelector((state) => state.user.curriculums);
 
-  const summary = useSelector((state) => state.user.summary)
+  const index = () => {
+    let index = 0;
+    for (var i = 0; i < curriculums.length; i++) {
+      if (curriculums[i].language === language) index = i;
+    }
+    return index;
+  };
+/* 
+  const title = () => {
+    if (language === "spanish") return "Experiencia";
+    if (language === "english") return "Experience";
+  } */
+  //-----------------------------------------------
+  const summary = useSelector((state) => state.user.curriculums[index()].summary)
 
   const dispatch = useDispatch();
   const handleSubmit1 = (formObj, id) => {
