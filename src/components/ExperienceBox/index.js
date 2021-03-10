@@ -9,7 +9,23 @@ import useModal from '../ModalExperience/useModal';
 
 const ExperienceBox = () => {
 
-  const experience = useSelector((state) => state.user.experience);
+  const language = useSelector((state) => state.language.language);
+  const curriculums = useSelector((state) => state.user.curriculums);
+
+  const index = () => {
+    let index = 0;
+    for (var i = 0; i < curriculums.length; i++) {
+      if (curriculums[i].language === language) index = i;
+    }
+    return index;
+  };
+
+  const experiences = useSelector((state) => state.user.curriculums[index()].experiences);
+
+const title = () => {
+  if (language === "spanish") return "Experiencia";
+  if (language === "english") return "Experience";
+}
 
   var ID = function () {
     return Math.random().toString(36).substr(2, 9);
@@ -25,8 +41,8 @@ const ExperienceBox = () => {
           hide={toggle}
         />
         <IconContext.Provider value={{ color: "#e39556", size: "1.1em" }}>
-          <Experience><Icon> <CgWorkAlt onClick={toggle} /></Icon>Experience</Experience>
-          {experience.map(i => <ExperienceCard
+          <Experience><Icon> <CgWorkAlt onClick={toggle} /></Icon>{title()}</Experience>
+          {experiences.map(i => <ExperienceCard
             key={ID()}
             position={i.position}
             place={i.place}

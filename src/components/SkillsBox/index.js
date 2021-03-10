@@ -8,8 +8,24 @@ import useModal from '../ModalSkills/useModal';
 import { useSelector } from 'react-redux';
 
 const SkillsBox = () => {
-  
-  const skills = useSelector((state) => state.user.skills);
+
+  const language = useSelector((state) => state.language.language);
+  const curriculums = useSelector((state) => state.user.curriculums);
+
+  const index = () => {
+    let index = 0;
+    for (var i = 0; i < curriculums.length; i++) {
+      if (curriculums[i].language === language) index = i;
+    }
+    return index;
+  };
+
+  const skills = useSelector((state) => state.user.curriculums[index()].skills);
+
+  const title = () => {
+    if (language === "spanish") return "Habilidades";
+    if (language === "english") return "Skills";
+  }
 
   const { isShowing, toggle } = useModal();
 
@@ -25,11 +41,11 @@ const SkillsBox = () => {
           hide={toggle}
         />
         <IconContext.Provider value={{ color: "#3e4f4d", size: "1.1em" }}>
-          <Skills><Icon> <RiHomeGearLine onClick={toggle} /></Icon> Skills </Skills>
+          <Skills><Icon> <RiHomeGearLine onClick={toggle} /></Icon> {title()} </Skills>
           {skills.map(i => <SkillCard
             key={ID()}
-            skillArea={i.skillArea}
-            skillTool={i.skillTool}
+            skillArea={i.area}
+            skillTool={i.tools}
           />)}
         </IconContext.Provider>
       </Nav>

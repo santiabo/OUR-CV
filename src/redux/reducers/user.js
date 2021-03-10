@@ -1,124 +1,112 @@
-/* import update from 'react-addons-update'; */
+import initialState from "./initialState"
 
 import {
+  START_REQUEST,
+  SUCCESS_REQUEST,
+  GET_USER,
   CHANGE_NAME,
   CHANGE_EXPERIENCE,
   CHANGE_EDUCATION,
   CHANGE_SUMMARY,
   CHANGE_SKILLS,
-  CHANGE_PASSIONS
+  CHANGE_PASSIONS,
+  CHANGE_AVATAR,
+  LOGIN_USER,
+  LOGOUT_USER,
 } from '../actions/user';
 
-const initialState = {
+const userReducer = (state = initialState(), action) => {
+  const { user, experience, education, summary } = action;
 
-  name: "Santiago Aguirre",
-  title: "Full Stack Developer",
-  city: "Rio Ceballos",
-  email: "santiabo@gmail.com",
-  mobile: "+54 11 66735627",
-  experience: [{
-    position: "Full stack Developer",
-    place: "Soy Henry",
-    date: " Jan 2021 - Argentina",
-    info: `- Build a e-commerce web app with React Redux in the frontend,
-      taking attention to write well maintained code from the beginning.
-              - Made the database using  Postgresql and Sequelize with Dbeaver and
-      postman as helping tools.
-              - Used passport Local and Bearer strategy with Json web token for
-               verifying the user login to site. And Bcrypt for encrypting the
-      password in the database.`
-  },
-  {
-    position: "Full stack Developer",
-    place: "Soy Henry",
-    date: " Jan 2021 - Argentina",
-    info: `Build a new mobile e-bank app with React-Native,
-      Expo and Redux as frameworks and Paper to give it styles.
-     - Made the database using MySQL and Sequelize with Dbeaver
-      and postman as helping tools.
-     - Used Gmail API for e-mail authentication, fusionAuth for local
-      autentication and expo API for loggin with biometricals, Bcrypt for
-       encrypting the password in the database.`
-  }],
-  education: [{
-    title: "Full stack Developer",
-    place: "Soy Henry",
-    date: " Feb 2021 - Argentina",
-  },
-  {
-    title: "JavaScript Algorithms and Data Structures",
-    place: "freeCodeCamp",
-    date: " Feb 2021 - Argentina",
-  }],
-  summary: `Full stack developer, proactive,
-  fast learner with an advanced English level.`,
-  skills: [
-    {
-      skillArea: "Coding",
-      skillTool: `HTML CSS/CSS3 LESS StyledComponents Bootstrap
-   JQuery JavaScript  React  Redux  SQL Sequelize  Postgresql Passport`
-    },
-    {
-      skillArea: "Tools & Technologies",
-      skillTool: `Visual Studio Code  Figma  Git  npm `
-    },
-    {
-      skillArea: "Project Management",
-      skillTool: `Airtable  Trello  Scrum Agile`
-    },
-    {
-      skillArea: "Languages",
-      skillTool: `Spanish(native)   English(advanced)`
-    }],
-  passions: [
-    {
-      area: "healt",
-
-      description: `Healthy lifestyle, individual sports and travel.`
-    },
-    {
-      area: "healt",
-
-      description: `Learning new tecnologies and languages.`
-    },
-  ]
-
-};
-
-
-const userReducer = (state = initialState, action) => {
-  const user = action.user;
-  const experience = action.experience;
   switch (action.type) {
+
+    case START_REQUEST:
+      return {
+        ...state,
+        loading: true
+      };
+    case SUCCESS_REQUEST:
+      return {
+        ...state,
+        loading: false
+      };
+
+    case GET_USER:
+      return {
+        ...state,
+        ...user
+      };
+
+    case LOGIN_USER:
+
+      return {
+        ...state,
+        loggedUser: action.user
+      };
+
+    case LOGOUT_USER:
+      return initialState()
+
     case CHANGE_NAME:
       return {
         ...state,
         ...user
       };
-    case CHANGE_EXPERIENCE:
+
+    case CHANGE_EXPERIENCE: {
+      const arrayIndex = state.curriculums.findIndex(curr => curr.id === experience.curriculumId);
+      const experienceIndex = state.curriculums[arrayIndex].experiences.findIndex(exp => exp.id === experience.id);
+      const newArray = [...state.curriculums]; //making a new array
+      newArray[arrayIndex].experiences[experienceIndex] = experience;//saving the value 
       return {
         ...state,
-        ...experience
-      };
+        curriculums: newArray
+      }
+    };
+
     case CHANGE_EDUCATION:
+      const arrayIndex = state.curriculums.findIndex(curr => curr.id === action.education.curriculumId);
+      const educationIndex = state.curriculums[arrayIndex].education.findIndex(edu => edu.id === education.id);
+      const newArray = [...state.curriculums]; //making a new array
+      newArray[arrayIndex].education[educationIndex] = education;//changing value in the new array
       return {
         ...state,
-        user: { ...state }
+        education: newArray
       };
+
     case CHANGE_SUMMARY:
+      const arrayISummary = state.curriculums.findIndex(sum => sum.id === action.summary[0].curriculumId);
+      const newArr = [...state.curriculums];
+      newArr[arrayISummary].summary = summary[0];
       return {
         ...state,
-        ...user
+        summary: newArr
       };
+
     case CHANGE_SKILLS:
+      const arrayISkills = state.curriculums.findIndex(curr => curr.id === action.skill.curriculumId);
+      const skillIndex = state.curriculums[arrayISkills].skills.findIndex(sk => sk.id === action.skill.id);
+      const newSkills = [...state.curriculums]; //making a new array
+      newSkills[arrayISkills].skills[skillIndex] = action.skill;//changing value in the new array    
       return {
         ...state,
-        ...user
+        skills: newSkills
       };
+
     case CHANGE_PASSIONS:
+      const arrayIPassions = state.curriculums.findIndex(curr => curr.id === action.passion.curriculumId);
+      const passionIndex = state.curriculums[arrayIPassions].passions.findIndex(pa => pa.id === action.passion.id);
+      const newPassion = [...state.curriculums]; //making a new array
+      newPassion[arrayIPassions].passions[passionIndex] = action.passion;//changing value in the new array  
       return {
         ...state,
-        ...user
+        passions: newPassion
+      };
+
+    case CHANGE_AVATAR:
+      return {
+        ...state,
+        avatar: action.avatar
       };
 
     default:

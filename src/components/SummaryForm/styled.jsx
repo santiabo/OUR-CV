@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 
-export const Input = styled.input`
+export const Input = styled.textarea`
   width: 100%;
   background-color: #FFF;
   color: black;
@@ -15,26 +15,24 @@ export const Input = styled.input`
   &::-webkit-input-placeholder {
     color: black;
 `
-
 export const Button = styled.button`
-  margin-top:10px;
+  margin-top:25px;
+  margin-left:140px;
   box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
-	background-color:#f9f9f9;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
 	border-radius:6px;
-	border:1px solid #000;
+	border:2px solid #dcdcdc;
 	display:inline-block;
 	cursor:pointer;
-	color:#666666;
-	font-size:1rem;
+	color:#00adb5;
+	font-size:15px;
 	font-weight:bold;
 	padding:6px 24px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
-  margin-left: 63%;
 
   &:hover {
- 
-  color: #000;
-
+    background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
 `

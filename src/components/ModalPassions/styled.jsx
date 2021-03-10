@@ -25,21 +25,26 @@ export const ModalWrapper = styled.div`
 `
 
 export const Modal1 = styled.div`
+  display:flex;
+  flex-direction:column;
   z-index: 100;
-  background: grey;
-  opacity: 0.9;
+  background: #FFF;
+  opacity: 1;
   position: relative;
   margin: 1.75rem auto;
+  border-color:grey;
   border-style: solid; 
-  border-width: 2px;
-  border-radius: 10px;
-  max-width: 500px;
+  border-width: 1px;
+  border-radius: 5px;
+  max-width: 650px;
+  min-height:400px;
   padding: 2rem;
 `
 
 export const ModalHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid black;
 `
 
 export const CloseButton = styled.div`
@@ -51,6 +56,9 @@ export const CloseButton = styled.div`
   cursor: pointer;
   border: none;
   font-size:2.2rem;
+  &:hover {
+  color: #00adb5;
+  }
  `
  export const H2 = styled.p`
  display: flex;

@@ -2,47 +2,41 @@ import styled from "styled-components"
 
 
 export const Nav = styled.nav` 
-  ; 
-  background: #0D070C;
-  color: white;
+  background: #393e46;
+  color: #0D070C;
   width: 100%;
   min-height: 2.8em; 
   display:flex;
-  
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
- 
-  font-size: 1rem;
-  top:0;
-  z-index: 10;
-  
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  height: 100px;
+
 `;
 
-export const LinksBox= styled.div`
+export const LinksBox = styled.div`
+background: #00adb5;
 display:flex;
+
 width: 100%;
-justify-content: center;
+
 flex-direction: row;
-flex-wrap: wrap;
-
-
-
+justify-content: center;
+align-items: flex-start;
 `;
+
 
 export const NavLinks = styled.a`
-color: black;
 display: flex;
-align-items:center;
+height: 50px;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
 text-decoration: none;
 padding: 0 1rem;
-height: 100%;
 cursor:pointer;
-margin-top: 10px;
-margin-left: 5px;
-
 &:hover {
-  /*border-bottom: 1px solid black; #01bf71;*/
-  color: #01bf71;
+  background: #393e46;
 }
 `;
+
+

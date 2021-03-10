@@ -1,20 +1,39 @@
-import React from 'react'
-import { GlobalStyle } from './globalStyles';
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from './redux/actions/user';
 import Home from '../src/pages/index'
-import store from './redux/index';
-import { Provider } from "react-redux";
+import {
+  GlobalStyleDot,
+  GlobalStyleMontserrat,
+  GlobalStyleRoboto,
+  GlobalStyleBitter,
+  GlobalStyleNews
+} from './globalStyles';
 
 function App() {
+  
+  const font = useSelector((state) => state.font.font)
+  const loggedUser = useSelector((state) => state.user.loggedUser.id)
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+   if (loggedUser){ 
+     dispatch(getUser(loggedUser));
+   }    
+ }); 
 
   return (
-    <Provider store={store}>
-      <Router>
-        <GlobalStyle />
-        <Home />
-      </Router>
-    </Provider>
+    <Router>
+      {font === "GlobalStyleDot" && <GlobalStyleDot />}
+      {font === "GlobalStyleRoboto" && <GlobalStyleRoboto />}
+      {font === "GlobalStyleMontserrat" && <GlobalStyleMontserrat />}
+      {font === "GlobalStyleBitter" && <GlobalStyleBitter />}
+      {font === "GlobalStyleNews" && <GlobalStyleNews />}
+      <Home />
+    </Router>
   );
 }
+//REDEPLOY !
 
 export default App;

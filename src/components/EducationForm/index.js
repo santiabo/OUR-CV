@@ -2,86 +2,101 @@ import React from "react";
 import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
-import { changeName } from '../../redux/actions/user';
-import { Input, Button } from './styled'
+import { changeEducation, putEducation } from '../../redux/actions/user';
+import { Input, Button, H2, Nav } from './styled'
 import useModal from '../ModalUser/useModal';
 
-const UserForm = (props) => {
+const EducationForm = () => {
+  const loggedUser = useSelector((state) => state.user.loggedUser.id)
+  const language = useSelector((state) => state.language.language);
+  const curriculums = useSelector((state) => state.user.curriculums);
 
-  const name = useSelector((state) => state.user.name);
-  const title = useSelector((state) => state.user.title);
-  const email = useSelector((state) => state.user.email);
-  const mobile = useSelector((state) => state.user.mobile);
-  const city = useSelector((state) => state.user.city);
+  const index = () => {
+    let index = 0;
+    for (var i = 0; i < curriculums.length; i++) {
+      if (curriculums[i].language === language) index = i;
+    }
+    return index;
+  };
+
+  const loggedOutCurriculum = () => {
+    if (language === "spanish") return { curriculumId: "b" };
+    if (language === "english") return { curriculumId: "a" };
+  }
+
+  const education = useSelector((state) => state.user.curriculums[index()].education)
 
   const dispatch = useDispatch();
-  const handleSubmit1 = (formObj) => {
-    /* formObj.preventDefault(); */
-    console.log("CACA")
-    dispatch(changeName(formObj))
+  const handleSubmit1 = (formObj, id) => {
+
+    const loggedOutUser = () => {
+      const newId = { id: id };
+      return { ...formObj, ...loggedOutCurriculum(), ...newId };
+    };
+    if (!loggedUser) return dispatch(putEducation(loggedOutUser()));
+    dispatch(changeEducation(formObj, id))
   }
 
   const { toggle } = useModal();
-  const { handleClose } = props;
 
   return (
-      <Form
-        onSubmit={formObj => {
-          handleSubmit1(formObj);
-        }}
-      >
-        {({ handleSubmit }) => (
-          <form onSubmit={handleSubmit}>
-            <Field name="name">
-              {({ input }) => (
-                <Input
-                  placeholder={name}
-                  type="text"
-                  {...input}
-                />
+    <>
+      {
+        education.map((e) =>
+          <Nav>
+            <Form
+              initialValues={
+                {
+                  title: e.title,
+                  date: e.date,
+                  place: e.place
+                }
+              }
+              onSubmit={formObj => {
+                handleSubmit1(formObj, e.id);
+              }}
+            >
+              {({ handleSubmit }) => (
+                <form onSubmit={handleSubmit}>
+                  <H2>{language === "spanish" ? "Titulo" : "Title"}</H2>
+                  <Field name="title">
+                    {({ input }) => (
+                      <Input
+                        placeholder={e.title}
+                        type="text"
+                        {...input}
+                      />
+                    )}
+                  </Field>
+                  <H2>{language === "spanish" ? "Lugar" : "Place"}</H2>
+                  <Field name="place">
+                    {({ input }) => (
+                      <Input
+                        placeholder={e.place}
+                        type="text"
+                        {...input}
+                      />
+                    )}
+                  </Field>
+                  <H2>{language === "spanish" ? "Fecha" : "Date"}</H2>
+                  <Field name="date">
+                    {({ input }) => (
+                      <Input
+                        placeholder={e.date}
+                        type="text"
+                        {...input}
+                      />
+                    )}
+                  </Field>
+                  <Button type="submit" onSubmit={toggle} >Save changes</Button>
+                </form>
               )}
-            </Field>
-            <Field name="title">
-              {({ input }) => (
-                <Input
-                  placeholder={title}
-                  type="text"
-                  {...input}
-                />
-              )}
-            </Field>
-            <Field name="email">
-              {({ input }) => (
-                <Input
-                  placeholder={email}
-                  type="email"
-                  {...input}
-                />
-              )}
-            </Field>
-            <Field name="mobile">
-              {({ input }) => (
-                <Input
-                  placeholder={mobile}
-                  type="text"
-                  {...input}
-                />
-              )}
-            </Field>
-            <Field name="city">
-              {({ input }) => (
-                <Input
-                  placeholder={city}
-                  type="text"
-                  {...input}
-                />
-              )}
-            </Field>
-            <Button type="submit" onSubmit={toggle} >Save changes</Button>
-          </form>
-        )}
-      </Form>
+            </Form>
+          </Nav>
+        )
+      }
+    </>
   );
 };
 
-export default UserForm;
+export default EducationForm;
