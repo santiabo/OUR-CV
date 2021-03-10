@@ -13,9 +13,6 @@ margin-right:20px;
   color: #01bf71;
 }
 
-@media screen and (max-width: 768px) {
-  display:none;
-}
 `;
 
 export const TooltipBox = styled.div`
@@ -54,6 +51,10 @@ position: relative;
       width: 230px;
       padding: 8px 8px;
       border-radius: 4px;
+}
+@media screen and (max-width: 768px) {
+  flex-direction: column;
+}
 `;
 
 

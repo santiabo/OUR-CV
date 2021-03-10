@@ -2,13 +2,14 @@ import React from "react";
 import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
-import { changePassion } from '../../redux/actions/user';
-import { Input, Button, H2, Nav, Input2, Div } from './styled'
+import { changePassion, putPassion } from '../../redux/actions/user';
+import { Input, Button, H2, Nav, Input2 } from './styled'
 import useModal from '../ModalUser/useModal';
 
-const PassionsForm = (props) => {
+const PassionsForm = () => {
 
     //------Refactor------------------------------------------
+    const loggedUser = useSelector((state) => state.user.loggedUser.id)
     const language = useSelector((state) => state.language.language);
     const curriculums = useSelector((state) => state.user.curriculums);
   
@@ -19,17 +20,25 @@ const PassionsForm = (props) => {
       }
       return index;
     };
-  /* 
-    const title = () => {
-      if (language === "spanish") return "Experiencia";
-      if (language === "english") return "Experience";
-    } */
+
+    const loggedOutCurriculum = () => {
+      if (language === "spanish") return { curriculumId: "b" };
+      if (language === "english") return { curriculumId: "a" };
+    }
     //-----------------------------------------------
 
   const passions = useSelector((state) => state.user.curriculums[index()].passions)
 
   const dispatch = useDispatch();
+  
   const handleSubmit1 = (formObj, id) => {
+    const loggedOutUser = () => {
+      const newId = { id: id };
+      return { ...formObj, ...loggedOutCurriculum(), ...newId };
+  
+    }
+    if (!loggedUser) return dispatch(putPassion(loggedOutUser())); 
+    
     dispatch(changePassion(formObj, id))
   }
 
@@ -43,6 +52,12 @@ const PassionsForm = (props) => {
         passions.map((e) =>
         <Nav>
           <Form
+                        initialValues={
+                {
+                  area: e.area,
+                  description: e.description,
+                }
+              }
             onSubmit={formObj => {
               handleSubmit1(formObj, e.id);
             }}

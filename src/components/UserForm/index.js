@@ -2,13 +2,13 @@ import React from "react";
 import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
-import { changeName } from '../../redux/actions/user';
+import { changeName, putUser } from '../../redux/actions/user';
 import { Input, Button, H2 } from './styled'
 import useModal from '../ModalUser/useModal';
 
-const UserForm = (props) => {
+const UserForm = () => {
 
-  
+  const loggedUser = useSelector((state) => state.user.loggedUser.id)
   const language = useSelector((state) => state.language.language);
   const id = useSelector((state) => state.user.id)
   const name = useSelector((state) => state.user.name);
@@ -17,23 +17,28 @@ const UserForm = (props) => {
   const mobile = useSelector((state) => state.user.mobile);
   const city = useSelector((state) => state.user.city);
 
+
   const dispatch = useDispatch();
   const handleSubmit1 = (formObj, id) => {
+
+    if (!loggedUser) return dispatch(putUser(formObj));
     dispatch(changeName(formObj, id))
   };
 
   const { toggle } = useModal();
 
-  /* const title = () => {
-    if (language === "spanish") return "Educación";
-    if (language === "english") return "Education";
-  } */
-
-
-
-
   return (
     <Form
+     initialValues={
+                {
+                  title,
+                  name,
+                  email,
+                  mobile,
+                  city,
+
+                }
+              }
       onSubmit={formObj => {
         handleSubmit1(formObj, id);
       }}

@@ -2,10 +2,12 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeAvatar } from '../../redux/actions/user';
+import { changeAvatar, putAvatar } from '../../redux/actions/user';
 import { Input, Button, Nav } from './styled'
 
 const ImagePicker = () => {
+
+  const loggedUser = useSelector((state) => state.user.loggedUser.id)
 
   const id = useSelector((state)=> state.user.id)
   const avatar1 =useSelector((state) => state.user.avatar)
@@ -28,6 +30,8 @@ const ImagePicker = () => {
   const avatar = String(image);
   const dispatch = useDispatch();
   const handleClick = () =>{
+
+    if (!loggedUser) return dispatch(putAvatar(avatar));
     dispatch(changeAvatar(avatar, id))
   }
  

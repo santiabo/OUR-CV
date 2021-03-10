@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom';
-import Home from '../src/pages/index'
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from './redux/actions/user';
-
+import Home from '../src/pages/index'
 import {
   GlobalStyleDot,
   GlobalStyleMontserrat,
@@ -15,13 +14,12 @@ import {
 function App() {
   
   const font = useSelector((state) => state.font.font)
-  const loggedUser = useSelector((state) => state.loggedUser.loggedUser)
+  const loggedUser = useSelector((state) => state.user.loggedUser.id)
 
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log("loggedUser", loggedUser)
    if (loggedUser){ 
-     dispatch(getUser(loggedUser.id));
+     dispatch(getUser(loggedUser));
    }    
  }); 
 

@@ -1,32 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Body from '../components/Body';
 import Footer from '../components/Footer';
 import PrinterWrapper from '../components/PDF2';
-import { Nav, Nav2, Div } from './syled';
+import { Nav, BodyDiv, HeaderDiv } from './syled';
 import Header from '../components/Header';
 import Menu from '../components/Menu'
-import { useDispatch, useSelector } from 'react-redux';
-import { getUser } from '../redux/actions/user';
-import store from '../redux';
 
-const Home = () => { 
+const Home = () => {
 
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <Nav>
-        <Div>
+        <HeaderDiv>
           <Header open={open} setOpen={setOpen} />
           <Menu open={open} setOpen={setOpen} />
-        </Div>
-        <Nav2>
+        </HeaderDiv>
+        <BodyDiv>
           <PrinterWrapper>
             <Navbar />
             <Body />
           </PrinterWrapper>
-        </Nav2>
+        </BodyDiv>
       </Nav>
       <Footer />
     </>

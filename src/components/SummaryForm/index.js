@@ -2,12 +2,13 @@ import React from "react";
 import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
-import { changeSummary } from '../../redux/actions/user';
+import { changeSummary, putSummary } from '../../redux/actions/user';
 import { Input, Button } from './styled'
 import useModal from '../ModalUser/useModal';
 
-const SummaryForm = (props) => {
+const SummaryForm = () => {
   //------Refactor------------------------------------------
+  const loggedUser = useSelector((state) => state.user.loggedUser.id)
   const language = useSelector((state) => state.language.language);
   const curriculums = useSelector((state) => state.user.curriculums);
 
@@ -18,22 +19,25 @@ const SummaryForm = (props) => {
     }
     return index;
   };
-/* 
-  const title = () => {
-    if (language === "spanish") return "Experiencia";
-    if (language === "english") return "Experience";
-  } */
+
+  const loggedOutCurriculum = () => {
+    if (language === "spanish") return { curriculumId: "b" };
+    if (language === "english") return { curriculumId: "a" };
+  }
   //-----------------------------------------------
   const summary = useSelector((state) => state.user.curriculums[index()].summary)
 
   const dispatch = useDispatch();
   const handleSubmit1 = (formObj, id) => {
+    const loggedOutUser = () => {
+      const newId = { id: id };
+      return [{ ...formObj, ...loggedOutCurriculum(), ...newId }];
+    }
+    if (!loggedUser) return dispatch(putSummary(loggedOutUser()));
     dispatch(changeSummary(formObj, id))
-  }
+  };
 
   const { toggle } = useModal();
-  /* const { handleClose } = props; */
-
 
   return (
     <>

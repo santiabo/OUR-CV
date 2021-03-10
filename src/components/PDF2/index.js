@@ -6,9 +6,15 @@ import { Nav } from './styled';
 export default function PrinterWrapper({ children }) {
 
   const print = useSelector((state) => state.print.printing)
+
+  let initialRender = useRef(true)
   useEffect(() => {
-    handlePrint()
-  },[print]);
+    if (initialRender.current) {
+      initialRender.current = false;
+    } else {
+      handlePrint()
+    }
+  }, [print]);
 
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,

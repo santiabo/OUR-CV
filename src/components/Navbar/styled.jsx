@@ -24,6 +24,7 @@ margin-top:64px;
 
 @media screen and (max-width: 768px) {
 flex-direction: column;
+align-items:center;
   }
 
 `;
@@ -45,10 +46,12 @@ justify-content: flex-end;
 flex-direction: column;
 margin-left: 40px;
 width:70%;
+margin-left: 0px;;
+
 
 @media screen and (max-width: 768px) {
-  width:50%;
-  margin-bottom: 20px;
+  width:100%;
+
   align-itmes: top;
   justify-content: flex-start;
   text-align: center;
@@ -57,15 +60,11 @@ width:70%;
 
 export const Title = styled.div`
 color: #eeeee;
-
-
 font-size:42px;
 cursor: pointer;
 
 @media screen and (max-width: 768px) {
   font-size:38px;
-  margin-left: 0px;
-  align-items: center;
     }
 `;
 

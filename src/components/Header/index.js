@@ -1,20 +1,21 @@
 import React from 'react'
 import { bool, func } from 'prop-types';
 import { IconContext } from "react-icons";
-import { Nav, LinksBox, LinksBox2, BurgerDiv } from './styled'
+import { Nav, LinksBox, LinksBox2, BurgerDiv, GoogleDiv, GoogleDiv2 } from './styled'
 import { FcGoogle } from 'react-icons/fc';
 import { CgMenu } from 'react-icons/cg';
 import GoogleLogin, { GoogleLogout } from 'react-google-login'
 import { logOutUser } from '../../redux/actions/user';
-import { logInUser } from '../../redux/actions/logged';
-import { useDispatch } from 'react-redux';
+import { logInUser } from '../../redux/actions/user';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Header = ({ open, setOpen }) => {
+
+  const loggedUserId = useSelector((state) => state.user.loggedUser.id)
 
   const dispatch = useDispatch();
 
   const handleLogin = async googleData => {
-    console.log("GOOGLE DATA", googleData)
     const res = await fetch("http://localhost:3001/auth/api/v1/auth/google", {
       method: "POST",
       body: JSON.stringify({
@@ -25,7 +26,7 @@ const Header = ({ open, setOpen }) => {
       }
     })
     const data = await res.json()
-    dispatch(logInUser(data)) 
+    dispatch(logInUser(data))
   };
 
   const handleLogout = () => {
@@ -45,24 +46,31 @@ const Header = ({ open, setOpen }) => {
         </LinksBox2>
         <LinksBox>
           <IconContext.Provider value={{ color: "white", size: "2em" }}>
-            <GoogleLogin
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              render={renderProps => (
-                <button onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}><FcGoogle /></button>
-              )}
-              buttonText="Log in"
-              onSuccess={handleLogin}
-              onFailure={handleLogin}
-              cookiePolicy={'single_host_origin'}
-            
-            />
-            <GoogleLogout
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              buttonText="Logout"
-              onLogoutSuccess={handleLogout}
-            >
-            </GoogleLogout>
+
+            {loggedUserId ?
+              <GoogleLogout
+                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                render={renderProps => (
+                  <GoogleDiv2 onClick={renderProps.onClick}
+                    disabled={renderProps.disabled}><FcGoogle /></GoogleDiv2>
+                )}
+                buttonText="Logout"
+                onLogoutSuccess={handleLogout}
+              >
+              </GoogleLogout>
+              :
+              <GoogleLogin
+                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                render={renderProps => (
+                  <GoogleDiv onClick={renderProps.onClick}
+                    disabled={renderProps.disabled}><FcGoogle /></GoogleDiv>
+                )}
+                buttonText="Log in"
+                onSuccess={handleLogin}
+                onFailure={handleLogin}
+                cookiePolicy={'single_host_origin'}
+              />
+            }
           </IconContext.Provider>
         </LinksBox>
       </Nav>

@@ -13,7 +13,7 @@ export const StyledMenu = styled.nav`
   height: 300px;
   text-align: left;
   position: fixed;
-  max-width: 70px;
+  max-width: 50px;
   top:50px;
   left: 0;
   transition: transform 0.3s ease-in-out;
@@ -22,6 +22,9 @@ export const StyledMenu = styled.nav`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;
   }
+  @media screen and (max-width: 768px) {
+    max-width: 43px;
+}
 `;
 
 export const NavLinks = styled.a`

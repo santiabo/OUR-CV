@@ -1,5 +1,7 @@
 import axios from "axios";
 
+
+//--------------put in "constants" folder ! !
 export const GET_USER = "GET_USER"
 export const SET_AUTH_USER= "SET_AUTH_USER";
 export const CHANGE_NAME = "CHANGE_NAME";
@@ -11,9 +13,10 @@ export const CHANGE_PASSIONS = "CHANGE_PASSIONS";
 export const CHANGE_AVATAR = "CHANGE_AVATAR";
 export const  LOGIN_USER = "LOGIN_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
-export const AUTO_LOGIN = "AUTO_LOGIN";
+
 export const START_REQUEST  = "START_REQUEST";
 export const SUCCESS_REQUEST = "SUCCESS_REQUEST";
+
 
 
 const startRequest = () => {
@@ -41,14 +44,6 @@ export const logOutUser = (user) => {
     user
   };
 };
-
-const autoLoginUser = (user) => {
-  return {
-    type: AUTO_LOGIN,
-    user
-  };
-};
-
 
 export const setUser = (user)=>{
   return {
@@ -114,6 +109,11 @@ export const putAvatar = (avatar) => {
   }
 };
 
+
+
+//----------------Put in the "services" folder ! !
+
+
 export const logInUser = (user) => {
   return async (dispatch) => {
     try {
@@ -161,6 +161,7 @@ export const changeExperience = (formObj, id) => {
     try {
       const res = await axios.put(`http://localhost:3001/experience/${id}`, formObj);
       dispatch(putExperience(res.data));
+      console.log("RES DATA > > > ", res.data)
     } catch (err) {
       console.log(err);
     }
@@ -217,7 +218,6 @@ export const changeAvatar = (avatar, id) => {
     try {
       avatar = {avatar};
       const res = await axios.put(`http://localhost:3001/user/avatar/${id}`, avatar);
-     
       dispatch(putAvatar(res.data.avatar));
     } catch (err) {
       console.log(err);

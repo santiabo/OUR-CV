@@ -46,7 +46,7 @@ justify-content: center;
 background: #222831;
 display:flex;
 cursor:pointer;
-width:70px;
+width:50px;
 
 &:focus {
     outline: none;
@@ -54,5 +54,43 @@ width:70px;
 
 &:hover {
  background: #00adb5;
+}
+`;
+
+export const GoogleDiv= styled.div`
+display:flex;
+align-items:center;
+justify-content: center;
+width:50px;
+
+background: #222831;
+display:flex;
+cursor:pointer;
+
+&:focus {
+    outline: none;
+  }
+
+&:hover {
+ background: #00adb5;
+}
+`;
+
+export const GoogleDiv2= styled.div`
+display:flex;
+align-items:center;
+justify-content: center;
+width:50px;
+
+background: black;
+display:flex;
+cursor:pointer;
+
+&:focus {
+    outline: none;
+  }
+
+&:hover {
+ background: darkred;
 }
 `;
