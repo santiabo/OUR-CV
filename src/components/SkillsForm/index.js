@@ -2,10 +2,10 @@ import React from "react";
 import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
-import { changeSkill, putSkill } from '../../redux/actions/user';
-import { Input, Button, H2, Nav } from './styled'
+import { changeSkill, destroySkills, putSkill } from '../../redux/actions/user';
+import { Input, Button, H2, Nav, Input2, ButtonDelete, Div } from '../styles/forms'
 import useModal from '../ModalUser/useModal';
-import { Input2 } from "../ExperienceForm/styled";
+
 
 const SkillsForm = () => {
   const loggedUser = useSelector((state) => state.user.loggedUser.id)
@@ -36,7 +36,9 @@ const SkillsForm = () => {
     if (!loggedUser) return dispatch(putSkill(loggedOutUser()));
     dispatch(changeSkill(formObj, id))
   }
-
+  const handleCLick = (id) => {
+    dispatch(destroySkills(id))
+  }
   const { toggle } = useModal();
 
   return (
@@ -44,6 +46,9 @@ const SkillsForm = () => {
       {
         skills.map((e) =>
           <Nav>
+          <Div>
+              <ButtonDelete onClick={() => handleCLick(e.id)}>{language === "spanish" ? "Eliminar habilidad" : "Delete skill"}</ButtonDelete>
+            </Div>
             <Form
               initialValues={
                 {
@@ -78,7 +83,7 @@ const SkillsForm = () => {
                       />
                     )}
                   </Field>
-                  <Button type="submit" onSubmit={toggle} >Save changes</Button>
+                  <Button type="submit" onSubmit={toggle} >{language === "spanish" ? "Guardar cambios" : "Save changes"}</Button>
                 </form>
               )}
             </Form>

@@ -8,8 +8,13 @@ export const Nav = styled.nav`
   flex-direction: column;
   justify-content: space-around;
   align-items: stretch;
-  
+`;
 
+export const Div = styled.div`
+ display:flex;
+ flex-direction:row;
+ justify-content:space-between;
+ align-items: center;
 `;
 
 export const H1 = styled.p`

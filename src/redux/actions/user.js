@@ -3,18 +3,24 @@ import axios from "axios";
 
 //--------------put in "constants" folder ! !
 export const GET_USER = "GET_USER"
-export const SET_AUTH_USER= "SET_AUTH_USER";
+export const SET_AUTH_USER = "SET_AUTH_USER";
 export const CHANGE_NAME = "CHANGE_NAME";
 export const CHANGE_EXPERIENCE = "CHANGE_EXPERIENCE";
+export const CREATE_EXPERIENCE = "CREATE_EXPERIENCE";
+export const DELETE_EXPERIENCE = "DELETE_EXPERIENCE"
 export const CHANGE_EDUCATION = "CHANGE_EDUCATION";
+export const CREATE_EDUCATION = "CREATE_EDUCATION";
+export const DELETE_EDUCATION = "DELETE_EDUCATION"
 export const CHANGE_SUMMARY = "CHANGE_SUMMARY";
 export const CHANGE_SKILLS = "CHANGE_SKILLS";
+export const CREATE_SKILLS = "CREATE_SKILLS";
+export const DELETE_SKILLS = "DELETE_SKILLS";
 export const CHANGE_PASSIONS = "CHANGE_PASSIONS";
 export const CHANGE_AVATAR = "CHANGE_AVATAR";
-export const  LOGIN_USER = "LOGIN_USER";
+export const LOGIN_USER = "LOGIN_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
 
-export const START_REQUEST  = "START_REQUEST";
+export const START_REQUEST = "START_REQUEST";
 export const SUCCESS_REQUEST = "SUCCESS_REQUEST";
 
 
@@ -45,7 +51,7 @@ export const logOutUser = (user) => {
   };
 };
 
-export const setUser = (user)=>{
+export const setUser = (user) => {
   return {
     type: SET_AUTH_USER,
     user
@@ -70,9 +76,23 @@ export const putExperience = (experience) => {
   return {
     type: CHANGE_EXPERIENCE,
     experience
-  
+
   }
 };
+
+export const postExperience = (experience) => {
+  return {
+    type: CREATE_EXPERIENCE,
+    experience
+  }
+}
+
+export const deleteExperience = (experience) => {
+  return {
+    type: DELETE_EXPERIENCE,
+    experience
+  }
+}
 
 export const putEducation = (education) => {
   return {
@@ -80,6 +100,20 @@ export const putEducation = (education) => {
     education
   }
 };
+
+export const postEducation = (education) => {
+  return {
+    type: CREATE_EDUCATION,
+    education
+  }
+}
+
+export const deleteEducation = (education) => {
+  return {
+    type: DELETE_EDUCATION,
+    education
+  }
+}
 
 export const putSummary = (summary) => {
   return {
@@ -94,6 +128,20 @@ export const putSkill = (skill) => {
     skill
   }
 };
+
+export const postSkills = (skill) => {
+  return {
+    type: CREATE_SKILLS,
+    skill
+  }
+}
+
+export const deleteSkills = (skill) => {
+  return {
+    type: DELETE_SKILLS,
+    skill
+  }
+}
 
 export const putPassion = (passion) => {
   return {
@@ -117,17 +165,15 @@ export const putAvatar = (avatar) => {
 export const logInUser = (user) => {
   return async (dispatch) => {
     try {
-       dispatch(startRequest());
- /*      const res = await axios.post(`/auth/login`, { ...email, ...password });
-      const { token, user } = res.data;  */
+      dispatch(startRequest());
+
 
       dispatch(loginUser(user));
-/*       localStorage.setItem("token", token);
-      dispatch(addUserCart(user.id));*/
+
       dispatch(successRequest());
     } catch (err) {
-      alert(err.response.data) 
-/*       dispatch(setError(err)); */
+      alert(err.response.data)
+
     }
   };
 };
@@ -216,7 +262,7 @@ export const changePassion = (formObj, id) => {
 export const changeAvatar = (avatar, id) => {
   return async (dispatch) => {
     try {
-      avatar = {avatar};
+      avatar = { avatar };
       const res = await axios.put(`http://localhost:3001/user/avatar/${id}`, avatar);
       dispatch(putAvatar(res.data.avatar));
     } catch (err) {
@@ -224,4 +270,74 @@ export const changeAvatar = (avatar, id) => {
     }
   };
 };
+
+export const createExperience = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.post(`http://localhost:3001/experience/${id}`);
+      dispatch(postExperience(res.data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const destroyExperience = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.delete(`http://localhost:3001/experience/${id}`);
+      dispatch(deleteExperience(res.data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const createEducation = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.post(`http://localhost:3001/education/${id}`);
+      dispatch(postEducation(res.data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const destroyEducation = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.delete(`http://localhost:3001/education/${id}`);
+      dispatch(deleteEducation(res.data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const createSkills = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.post(`http://localhost:3001/skills/${id}`);
+      dispatch(postSkills(res.data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const destroySkills = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.delete(`http://localhost:3001/skills/${id}`);
+      dispatch(deleteSkills(res.data));
+      console.log("RES DATA >", res.data)
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+
+
 

@@ -8,7 +8,7 @@ export const Input = styled.textarea`
   color: black;
   padding: 14px 20px;
   margin: 8px 0;
-  border:1px solid #000;
+  border:1px solid #aabbbf;
   border-radius: 4px;
   cursor: text;
   font-size: 1rem;

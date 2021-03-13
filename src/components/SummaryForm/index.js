@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
 import { changeSummary, putSummary } from '../../redux/actions/user';
-import { Input, Button } from './styled'
+import { Input2, Button } from '../styles/forms'
 import useModal from '../ModalUser/useModal';
 
 const SummaryForm = () => {
@@ -42,6 +42,11 @@ const SummaryForm = () => {
   return (
     <>
           <Form
+          initialValues={
+                {
+                  description: summary.description,
+                }
+              }
             onSubmit={formObj => {
               handleSubmit1(formObj,summary.id);
             }}
@@ -50,14 +55,14 @@ const SummaryForm = () => {
               <form onSubmit={handleSubmit}>
                 <Field name="description">
                   {({ input }) => (
-                    <Input
+                    <Input2
                       placeholder={summary.description}
                       type="text"
                       {...input}
                     />
                   )}
                 </Field>
-                <Button type="submit" onSubmit={toggle} >Save changes</Button>
+                <Button type="submit" onSubmit={toggle} >{language === "spanish" ? "Guardar cambios" : "Save changes"}</Button>
               </form>
             )}
           </Form>

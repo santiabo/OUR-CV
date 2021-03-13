@@ -2,8 +2,8 @@ import React from "react";
 import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
-import { changeEducation, putEducation } from '../../redux/actions/user';
-import { Input, Button, H2, Nav } from './styled'
+import { changeEducation, destroyEducation, putEducation } from '../../redux/actions/user';
+import { Input, Button, ButtonDelete, H2, Nav, Div } from '../styles/forms'
 import useModal from '../ModalUser/useModal';
 
 const EducationForm = () => {
@@ -37,6 +37,10 @@ const EducationForm = () => {
     dispatch(changeEducation(formObj, id))
   }
 
+  const handleCLick = (id) => {
+    dispatch(destroyEducation(id))
+  }
+
   const { toggle } = useModal();
 
   return (
@@ -44,54 +48,59 @@ const EducationForm = () => {
       {
         education.map((e) =>
           <Nav>
-            <Form
-              initialValues={
-                {
-                  title: e.title,
-                  date: e.date,
-                  place: e.place
+            <Div>
+              <ButtonDelete onClick={() => handleCLick(e.id)}>{language === "spanish" ? "Eliminar educación" : "Delete education"}</ButtonDelete>
+            </Div>
+            <Div>
+              <Form
+                initialValues={
+                  {
+                    title: e.title,
+                    date: e.date,
+                    place: e.place
+                  }
                 }
-              }
-              onSubmit={formObj => {
-                handleSubmit1(formObj, e.id);
-              }}
-            >
-              {({ handleSubmit }) => (
-                <form onSubmit={handleSubmit}>
-                  <H2>{language === "spanish" ? "Titulo" : "Title"}</H2>
-                  <Field name="title">
-                    {({ input }) => (
-                      <Input
-                        placeholder={e.title}
-                        type="text"
-                        {...input}
-                      />
-                    )}
-                  </Field>
-                  <H2>{language === "spanish" ? "Lugar" : "Place"}</H2>
-                  <Field name="place">
-                    {({ input }) => (
-                      <Input
-                        placeholder={e.place}
-                        type="text"
-                        {...input}
-                      />
-                    )}
-                  </Field>
-                  <H2>{language === "spanish" ? "Fecha" : "Date"}</H2>
-                  <Field name="date">
-                    {({ input }) => (
-                      <Input
-                        placeholder={e.date}
-                        type="text"
-                        {...input}
-                      />
-                    )}
-                  </Field>
-                  <Button type="submit" onSubmit={toggle} >Save changes</Button>
-                </form>
-              )}
-            </Form>
+                onSubmit={formObj => {
+                  handleSubmit1(formObj, e.id);
+                }}
+              >
+                {({ handleSubmit }) => (
+                  <form onSubmit={handleSubmit}>
+                    <H2>{language === "spanish" ? "Título" : "Title"}</H2>
+                    <Field name="title">
+                      {({ input }) => (
+                        <Input
+                          placeholder={e.title}
+                          type="text"
+                          {...input}
+                        />
+                      )}
+                    </Field>
+                    <H2>{language === "spanish" ? "Lugar" : "Place"}</H2>
+                    <Field name="place">
+                      {({ input }) => (
+                        <Input
+                          placeholder={e.place}
+                          type="text"
+                          {...input}
+                        />
+                      )}
+                    </Field>
+                    <H2>{language === "spanish" ? "Fecha" : "Date"}</H2>
+                    <Field name="date">
+                      {({ input }) => (
+                        <Input
+                          placeholder={e.date}
+                          type="text"
+                          {...input}
+                        />
+                      )}
+                    </Field>
+                    <Button type="submit" onSubmit={toggle} >{language === "spanish" ? "Guardar cambios" : "Save changes"}</Button>
+                  </form>
+                )}
+              </Form>
+            </Div>
           </Nav>
         )
       }

@@ -13,7 +13,7 @@ export const Nav = styled.nav`
 export const Div = styled.div`
  display:flex;
  justify-content:space-between;
- align-items: flex-end;
+ align-items: center;
 `;
 
 export const H1 = styled.p`

@@ -1,5 +1,5 @@
 
-import avatar from "../../images/avatar1.png";
+import avatar from "../../images/avatarMe.png";
 
 export default function initialState() {
   return ({

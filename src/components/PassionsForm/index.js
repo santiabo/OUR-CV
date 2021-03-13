@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
 import { changePassion, putPassion } from '../../redux/actions/user';
-import { Input, Button, H2, Nav, Input2 } from './styled'
+import { Input, Button, H2, Nav, Input2 } from '../styles/forms'
 import useModal from '../ModalUser/useModal';
 
 const PassionsForm = () => {
@@ -67,7 +67,7 @@ const PassionsForm = () => {
               <H2>{language === "spanish" ? "Categoria": "Category"}</H2>
               <Field name="area">
                   {({ input }) => (
-                    <Input2
+                    <Input
                       placeholder={e.area}
                       type="text"
                       {...input}
@@ -77,14 +77,14 @@ const PassionsForm = () => {
                 <H2>{language === "spanish" ? "Descripción": "Description"}</H2>
                 <Field name="description">
                   {({ input }) => (
-                    <Input
+                    <Input2
                       placeholder={e.description}
                       type="text"
                       {...input}
                     />
                   )}
                 </Field>
-                <Button type="submit" onSubmit={toggle} >Save changes</Button>
+                <Button type="submit" onSubmit={toggle} >{language === "spanish" ? "Guardar cambios": "Save changes"}</Button>
               </form>
             )}
           </Form>
