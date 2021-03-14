@@ -6,6 +6,7 @@ import { changeEducation, destroyEducation, putEducation } from '../../redux/act
 import { Input, Button, ButtonDelete, H2, Nav, Div } from '../styles/forms'
 import useModal from '../ModalUser/useModal';
 
+
 const EducationForm = () => {
   const loggedUser = useSelector((state) => state.user.loggedUser.id)
   const language = useSelector((state) => state.language.language);
@@ -48,9 +49,7 @@ const EducationForm = () => {
       {
         education.map((e) =>
           <Nav>
-            <Div>
-              <ButtonDelete onClick={() => handleCLick(e.id)}>{language === "spanish" ? "Eliminar educación" : "Delete education"}</ButtonDelete>
-            </Div>
+
             <Div>
               <Form
                 initialValues={
@@ -96,7 +95,10 @@ const EducationForm = () => {
                         />
                       )}
                     </Field>
-                    <Button type="submit" onSubmit={toggle} >{language === "spanish" ? "Guardar cambios" : "Save changes"}</Button>
+                    <Div>
+                      <Button type="submit" onSubmit={toggle} >{language === "spanish" ? "Guardar cambios" : "Save changes"}</Button>
+                      <ButtonDelete onClick={() => handleCLick(e.id)}>{language === "spanish" ? "Eliminar educación" : "Delete education"}</ButtonDelete>
+                    </Div>
                   </form>
                 )}
               </Form>

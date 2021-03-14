@@ -35,7 +35,7 @@ export const Modal1 = styled.div`
   border-color:grey;
   border-style: solid; 
   border-width: 1px;
-  border-radius: 5px;
+  border-radius:8px;
   max-width: 500px;
   min-height:400px;
   padding: 2rem;
@@ -83,7 +83,7 @@ export const Button = styled.button`
 	font-weight:bold;
 	padding:6px 24px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
+
 
   &:hover {
     background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);

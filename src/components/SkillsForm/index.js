@@ -46,9 +46,6 @@ const SkillsForm = () => {
       {
         skills.map((e) =>
           <Nav>
-          <Div>
-              <ButtonDelete onClick={() => handleCLick(e.id)}>{language === "spanish" ? "Eliminar habilidad" : "Delete skill"}</ButtonDelete>
-            </Div>
             <Form
               initialValues={
                 {
@@ -83,7 +80,10 @@ const SkillsForm = () => {
                       />
                     )}
                   </Field>
-                  <Button type="submit" onSubmit={toggle} >{language === "spanish" ? "Guardar cambios" : "Save changes"}</Button>
+                  <Div>
+                    <Button type="submit" onSubmit={toggle} >{language === "spanish" ? "Guardar cambios" : "Save changes"}</Button>
+                    <ButtonDelete onClick={() => handleCLick(e.id)}>{language === "spanish" ? "Eliminar habilidad" : "Delete skill"}</ButtonDelete>
+                  </Div>
                 </form>
               )}
             </Form>

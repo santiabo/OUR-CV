@@ -40,14 +40,14 @@ export default function initialState() {
         "id": "a",
         title: "Full stack Developer",
         place: "Soy Henry",
-        date: "Feb 2021 - Argentina",
+       
         "curriculumId": "a"
       },
       {
         "id": "b",
         title: "JavaScript Algorithms and Data Structures",
         place: "freeCodeCamp",
-        date: "Feb 2021 - Argentina",
+      
         "curriculumId": "a"
       }],
       summary: {

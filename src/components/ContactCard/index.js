@@ -23,6 +23,11 @@ const sendMessage = function() {
     `https://api.whatsapp.com/send?phone=${mobile}`, "_blank"); 
 } 
 
+const showMap = function() { 
+  window.open( 
+    `https://www.google.com/maps/search/?api=1&query=${city}`, "_blank"); 
+} 
+
   return (
     <>
       <Nav> <IconContext.Provider value={{ color: "#0D070C", size: "1.1em" }}>
@@ -44,7 +49,7 @@ const sendMessage = function() {
             <p>Send me a message !</p>
           </TooltipBox>
 
-          <TooltipText href="https://gooogle.maps">
+          <TooltipText onClick={showMap}>
             <MdPlace />&nbsp; {city}
           </TooltipText>
 

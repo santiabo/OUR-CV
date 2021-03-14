@@ -12,12 +12,12 @@ export const Nav = styled.nav`
 `;
 
 export const Div = styled.div` 
-  background:#f6f6fe;
+ 
   display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content: space-around;
-  width:100%;
+  flex-direction:row;
+  align-items:flex-end;
+  justify-content: space-between;
+
  
 `;
 
@@ -25,7 +25,7 @@ export const Input = styled.input`
   width: 100%;
   background-color: #FFF;
   color: black;
-  padding: 14px 20px;
+  padding: 8px 14px;
   margin: 8px 8px 8px 8px 0;
   border:1px solid #aabbbf;
   border-radius: 4px;
@@ -40,7 +40,7 @@ export const Input2 = styled.textarea`
   background-color: #FFF;
   color: black;
   min-height: 180px;
-  padding: 14px 20px;
+  padding: 8px 14px;
   margin: 8px 0;
   border:1px solid #aabbbf;
   border-radius: 4px;
@@ -50,6 +50,20 @@ export const Input2 = styled.textarea`
     color: black;
   }
 `
+export const Input3 = styled.select`
+  width: 100%;
+  background-color: #FFF;
+  color: black;
+  padding: 8px 14px;
+  margin: 8px 8px 8px 8px 0;
+  border:1px solid #aabbbf;
+  border-radius: 4px;
+  cursor: text;
+  font-size: 1rem;
+  &::-webkit-input-placeholder {
+    color: black;
+  }
+`;
 export const Button = styled.button`
   margin-top:5px;
   margin-bottom:10px;
@@ -63,7 +77,7 @@ export const Button = styled.button`
 	font-size:15px;
 	font-weight:bold;
 	padding:6px 24px;
-	text-shadow:1px 1px 0px #ffffff;
+  ${'' /* text-shadow:0px 1px 0px grey; */}
 
   &:hover {
     background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
@@ -75,8 +89,8 @@ export const H2 = styled.p`
  font-size: 1rem;
  font-weight: bold;
  margin-top:10px;
-
 `;
+
 export const ButtonDelete = styled.button`
   margin-top:5px;
   margin-bottom:10px;
@@ -90,10 +104,15 @@ export const ButtonDelete = styled.button`
 	font-size:15px;
 	font-weight:bold;
 	padding:6px 24px;
-	text-shadow:1px 1px 0px #ffffff;
+	${'' /* text-shadow:0px 1px 0px grey; */}
 
   &:hover {
-    background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+  background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
 	background-color:#f6f6f6;
   }
 `
+export const Errors = styled.p`
+ display: flex;
+ font-size: 1rem;
+ color: red;
+`;
