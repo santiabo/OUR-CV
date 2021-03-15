@@ -21,13 +21,13 @@ const Modal = ({ isShowing, hide }) => {
     return index;
   };
   const currId = curriculums[index()].id
-  
+
 
   const dispatch = useDispatch();
-   useEffect(() => {
-     if(loggedUser)  dispatch(getUser(loggedUser))
-      
-  }, []); 
+  useEffect(() => {
+    if (loggedUser) dispatch(getUser(loggedUser))
+
+  }, []);
 
   const title = () => {
     if (language === "spanish") return "Experiencia";
@@ -62,7 +62,11 @@ const Modal = ({ isShowing, hide }) => {
               </CloseButton>
             </ModalHeader>
             <ExperienceForm handleClose={handleClose} />
-            <Button onClick={() => handleClick(currId)}>{language === "spanish" ? "Agregar experiencia" : "Add experience"}</Button>
+            {loggedUser &&
+              <Button onClick={() => handleClick(currId)}>
+                {language === "spanish" ? "Agregar experiencia" : "Add experience"}
+              </Button>
+            }
           </Modal1>
         </ModalWrapper>
       </React.Fragment>, document.body

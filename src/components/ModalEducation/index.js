@@ -9,7 +9,7 @@ const Modal = ({ isShowing, hide }) => {
 
   const language = useSelector((state) => state.language.language);
   const curriculums = useSelector((state) => state.user.curriculums);
-
+  const loggedUser = useSelector((state) => state.user.loggedUser.id)
  
   const title = () => {
     if (language === "spanish") return "Educación";
@@ -47,7 +47,11 @@ const Modal = ({ isShowing, hide }) => {
               </CloseButton>
             </ModalHeader>
             <EducationForm handleClose={handleClose} />
-            <Button onClick={() => handleClick(currId)}>{language === "spanish" ? "Agregar educación" : "Add education"}</Button>
+            {loggedUser &&
+            <Button onClick={() => handleClick(currId)}>
+            {language === "spanish" ? "Agregar educación" : "Add education"}
+            </Button>
+            }
           </Modal1>
         </ModalWrapper>
       </React.Fragment>, document.body

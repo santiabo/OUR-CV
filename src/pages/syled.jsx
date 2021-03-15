@@ -18,7 +18,7 @@ export const BodyDiv = styled.div`
   margin-top:30px;
   width:80%;
   @media screen and (max-width: 768px) {
-    margin-right:10px;
+    margin-right:5%;
     margin-top:15px;
 }
 `;

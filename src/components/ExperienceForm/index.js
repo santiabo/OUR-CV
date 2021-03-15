@@ -116,7 +116,11 @@ const ExperienceForm = () => {
                     </Field>
                     <Div>
                     <Button type="submit" onSubmit={toggle} >{title()}</Button>
-                      <ButtonDelete onClick={() => handleCLick(e.id)}>{language === "spanish" ? "Eliminar experiencia" : "Delete experience"}</ButtonDelete>
+                    {loggedUser &&
+                      <ButtonDelete onClick={() => handleCLick(e.id)}>
+                      {language === "spanish" ? "Eliminar experiencia" : "Delete experience"}
+                      </ButtonDelete>
+                    }
                     </Div>   
                   </form>
                 )}

@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createSkills } from '../../redux/actions/user';
 
 const Modal = ({ isShowing, hide }) => {
-
+  
+  const loggedUser = useSelector((state) => state.user.loggedUser.id)
   const language = useSelector((state) => state.language.language);
   const curriculums = useSelector((state) => state.user.curriculums);
 
@@ -47,7 +48,11 @@ const Modal = ({ isShowing, hide }) => {
               </CloseButton>
             </ModalHeader>
             <SkillsForm handleClose={handleClose} />
-            <Button onClick={() => handleClick(currId)}>{language === "spanish" ? "Agregar habilidad" : "Add Skill"}</Button>
+            {loggedUser &&
+            <Button onClick={() => handleClick(currId)}>
+            {language === "spanish" ? "Agregar habilidad" : "Add Skill"}
+            </Button>
+            }
           </Modal1>
         </ModalWrapper>
       </React.Fragment>, document.body

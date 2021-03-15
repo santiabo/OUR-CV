@@ -96,8 +96,14 @@ const EducationForm = () => {
                       )}
                     </Field>
                     <Div>
-                      <Button type="submit" onSubmit={toggle} >{language === "spanish" ? "Guardar cambios" : "Save changes"}</Button>
-                      <ButtonDelete onClick={() => handleCLick(e.id)}>{language === "spanish" ? "Eliminar educación" : "Delete education"}</ButtonDelete>
+                      <Button type="submit" onSubmit={toggle} >
+                      {language === "spanish" ? "Guardar cambios" : "Save changes"}
+                      </Button>
+                      {loggedUser &&
+                      <ButtonDelete onClick={() => handleCLick(e.id)}>
+                      {language === "spanish" ? "Eliminar educación" : "Delete education"}
+                      </ButtonDelete>
+                      }
                     </Div>
                   </form>
                 )}

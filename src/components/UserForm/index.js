@@ -15,8 +15,6 @@ const UserForm = () => {
   const email = useSelector((state) => state.user.email);
   const mobile = useSelector((state) => state.user.mobile);
   const city = useSelector((state) => state.user.city);
-
-
   const dispatch = useDispatch();
   const handleSubmit1 = (formObj, id) => {
 
@@ -77,6 +75,8 @@ const UserForm = () => {
               />
             )}
           </Field>
+          {!loggedUser &&
+          <>
           <H2>{language === "spanish" ? "Correo electrónico" : "Email"}</H2>
           <Field key="2" name="email">
             {({ input }) => (
@@ -87,6 +87,8 @@ const UserForm = () => {
               />
             )}
           </Field>
+          </>
+          }
           <H2>{language === "spanish" ? "Telefono movil" : "Mobile number"}</H2>
           <Field key="3" name="mobile">
             {({ input, meta }) => {
