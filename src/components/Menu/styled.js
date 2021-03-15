@@ -16,6 +16,7 @@ export const StyledMenu = styled.nav`
   max-width: 50px;
   top:50px;
   left: 0;
+  visibility: visible;
   transition: transform 0.3s ease-in-out;
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
   
@@ -23,7 +24,7 @@ export const StyledMenu = styled.nav`
     width: 100%;
   }
   @media screen and (max-width: 768px) {
-    max-width: 43px;
+    max-width: 50px;
 }
 `;
 
