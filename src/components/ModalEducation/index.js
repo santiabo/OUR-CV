@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ModalOverlay, ModalWrapper, Modal1, ModalHeader, CloseButton, H2, Button } from '../styles/modals'
+import { ModalOverlay, ModalWrapper, Modal1, ModalHeader, CloseButton, H2, Button } from '../../styles/modals'
 import EducationForm from '../EducationForm'
 import { useSelector, useDispatch } from 'react-redux';
 import { createEducation } from '../../redux/actions/user';

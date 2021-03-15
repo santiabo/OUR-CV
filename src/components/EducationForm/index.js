@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
 import { changeEducation, destroyEducation, putEducation } from '../../redux/actions/user';
-import { Input, Button, ButtonDelete, H2, Nav, Div } from '../styles/forms'
+import { Input, Button, ButtonDelete, H2, Nav, Div } from '../../styles/forms'
 import useModal from '../ModalUser/useModal';
 
 

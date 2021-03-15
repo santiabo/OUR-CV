@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { changeName, putUser } from '../../redux/actions/user';
-import { Input, Button, H2, Errors, Input3 } from '../styles/forms'
+import { Input, Button, H2, Errors, Input3 } from '../../styles/forms'
 import useModal from '../ModalUser/useModal';
 
 const UserForm = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ModalOverlay, ModalWrapper, Modal1, ModalHeader, CloseButton, H2 } from '../styles/modals';
+import { ModalOverlay, ModalWrapper, Modal1, ModalHeader, CloseButton, H2 } from '../../styles/modals';
 import ImagePicker from '../Cloudinary/index'
 import { useSelector } from 'react-redux';
 

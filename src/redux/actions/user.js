@@ -183,7 +183,7 @@ export const logInUser = (user) => {
 export const getUser = (id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.get(`http://localhost:3001/user/${id}`);
+      const res = await axios.get(`/user/${id}`);
       dispatch(getUserData(res.data));
     } catch (err) {
       console.log(err);
@@ -194,7 +194,7 @@ export const getUser = (id) => {
 export const changeName = (formObj, id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.put(`http://localhost:3001/user/${id}`, formObj);
+      const res = await axios.put(`/user/${id}`, formObj);
       dispatch(putUser(res.data));
     } catch (err) {
       console.log(err);
@@ -205,7 +205,7 @@ export const changeName = (formObj, id) => {
 export const changeExperience = (formObj, id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.put(`http://localhost:3001/experience/${id}`, formObj);
+      const res = await axios.put(`/experience/${id}`, formObj);
       dispatch(putExperience(res.data));
       console.log("RES DATA > > > ", res.data)
     } catch (err) {
@@ -217,7 +217,7 @@ export const changeExperience = (formObj, id) => {
 export const changeEducation = (formObj, id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.put(`http://localhost:3001/education/${id}`, formObj);
+      const res = await axios.put(`/education/${id}`, formObj);
       dispatch(putEducation(res.data));
     } catch (err) {
       console.log(err);
@@ -228,7 +228,7 @@ export const changeEducation = (formObj, id) => {
 export const changeSummary = (formObj, id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.put(`http://localhost:3001/summary/${id}`, formObj);
+      const res = await axios.put(`/summary/${id}`, formObj);
       dispatch(putSummary(res.data));
     } catch (err) {
       console.log(err);
@@ -239,7 +239,7 @@ export const changeSummary = (formObj, id) => {
 export const changeSkill = (formObj, id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.put(`http://localhost:3001/skills/${id}`, formObj);
+      const res = await axios.put(`/skills/${id}`, formObj);
       dispatch(putSkill(res.data));
     } catch (err) {
       console.log(err);
@@ -251,7 +251,7 @@ export const changeSkill = (formObj, id) => {
 export const changePassion = (formObj, id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.put(`http://localhost:3001/passions/${id}`, formObj);
+      const res = await axios.put(`/passions/${id}`, formObj);
       dispatch(putPassion(res.data));
     } catch (err) {
       console.log(err);
@@ -263,7 +263,7 @@ export const changeAvatar = (avatar, id) => {
   return async (dispatch) => {
     try {
       avatar = { avatar };
-      const res = await axios.put(`http://localhost:3001/user/avatar/${id}`, avatar);
+      const res = await axios.put(`/user/avatar/${id}`, avatar);
       dispatch(putAvatar(res.data.avatar));
     } catch (err) {
       console.log(err);
@@ -274,7 +274,7 @@ export const changeAvatar = (avatar, id) => {
 export const createExperience = (id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.post(`http://localhost:3001/experience/${id}`);
+      const res = await axios.post(`/experience/${id}`);
       dispatch(postExperience(res.data));
     } catch (err) {
       console.log(err);
@@ -285,7 +285,7 @@ export const createExperience = (id) => {
 export const destroyExperience = (id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.delete(`http://localhost:3001/experience/${id}`);
+      const res = await axios.delete(`/experience/${id}`);
       dispatch(deleteExperience(res.data));
     } catch (err) {
       console.log(err);
@@ -296,7 +296,7 @@ export const destroyExperience = (id) => {
 export const createEducation = (id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.post(`http://localhost:3001/education/${id}`);
+      const res = await axios.post(`/education/${id}`);
       dispatch(postEducation(res.data));
     } catch (err) {
       console.log(err);
@@ -307,7 +307,7 @@ export const createEducation = (id) => {
 export const destroyEducation = (id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.delete(`http://localhost:3001/education/${id}`);
+      const res = await axios.delete(`/education/${id}`);
       dispatch(deleteEducation(res.data));
     } catch (err) {
       console.log(err);
@@ -318,7 +318,7 @@ export const destroyEducation = (id) => {
 export const createSkills = (id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.post(`http://localhost:3001/skills/${id}`);
+      const res = await axios.post(`/skills/${id}`);
       dispatch(postSkills(res.data));
     } catch (err) {
       console.log(err);
@@ -329,7 +329,7 @@ export const createSkills = (id) => {
 export const destroySkills = (id) => {
   return async (dispatch) => {
     try {
-      const res = await axios.delete(`http://localhost:3001/skills/${id}`);
+      const res = await axios.delete(`/skills/${id}`);
       dispatch(deleteSkills(res.data));
       console.log("RES DATA >", res.data)
     } catch (err) {

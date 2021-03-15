@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
 import { changeSummary, putSummary } from '../../redux/actions/user';
-import { Input2, Button } from '../styles/forms'
+import { Input2, Button } from '../../styles/forms'
 import useModal from '../ModalUser/useModal';
 
 const SummaryForm = () => {

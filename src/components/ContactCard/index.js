@@ -38,7 +38,7 @@ const showMap = function() {
           </TooltipText>
 
           <TooltipBox>
-            <p>Send me an email !</p>
+            <p>Send me an email</p>
           </TooltipBox>
 
           <TooltipText onClick={sendMessage}>
@@ -46,7 +46,7 @@ const showMap = function() {
           </TooltipText>
 
           <TooltipBox>
-            <p>Send me a message !</p>
+            <p>Send me a message </p>
           </TooltipBox>
 
           <TooltipText onClick={showMap}>
@@ -55,7 +55,7 @@ const showMap = function() {
 
           
           <TooltipBox>
-            <p>This is where I live !</p>
+            <p>I live here now</p>
           </TooltipBox>
 
         </LinksBox>

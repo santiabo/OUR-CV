@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Field, Form } from "react-final-form";
 import { useDispatch } from 'react-redux';
 import { changePassion, putPassion } from '../../redux/actions/user';
-import { Input, Button, H2, Nav, Input2 } from '../styles/forms'
+import { Input, Button, H2, Nav, Input2 } from '../../styles/forms'
 import useModal from '../ModalUser/useModal';
 
 const PassionsForm = () => {

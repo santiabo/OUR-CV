@@ -16,7 +16,7 @@ const Header = ({ open, setOpen }) => {
   const dispatch = useDispatch();
 
   const handleLogin = async googleData => {
-    const res = await fetch("http://localhost:3001/auth/api/v1/auth/google", {
+    const res = await fetch("https://our-curriculum.herokuapp.com/auth/api/v1/auth/google", {
       method: "POST",
       body: JSON.stringify({
         token: googleData.tokenId

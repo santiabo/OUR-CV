@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import { ModalOverlay, ModalWrapper, Modal1, ModalHeader, CloseButton, H2, Button } from '../styles/modals'
+import { ModalOverlay, ModalWrapper, Modal1, ModalHeader, CloseButton, H2, Button } from '../../styles/modals'
 import ExperienceForm from '../ExperienceForm'
 import { useDispatch, useSelector } from 'react-redux';
 import { createExperience, getUser } from '../../redux/actions/user';

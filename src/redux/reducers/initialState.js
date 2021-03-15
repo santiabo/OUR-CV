@@ -13,85 +13,90 @@ export default function initialState() {
     },
     name: "Santiago Aguirre",
     title: "Full Stack Developer",
-    city: "Rio Ceballos",
+    city: "Argentina",
     email: "santiabo@gmail.com",
-    mobile: "+54 1166735627",
+    mobile: "+541166735627",
     avatar: avatar,
     curriculums: [{
       id: "a",
       language: "english",
       experiences: [{
-        "id": "a",
-        position: "Full stack Developer",
+        id: "a",
+        position: "Academic experience - Full stack Developer",
         place: "Soy Henry",
-        date: "Jan 2021 - Argentina",
-        info: `Built a new mobile e-bank app with React-Native, Expo and Redux as frameworks and Paper to give it styles. - Made the database using MySQL and Sequelize with Dbeaver and postman as helping tools. - Used Gmail API for e-mail authentication, fusionAuth for local autentication and expo API for loggin with biometricals, Bcrypt for encrypting the password in the database.`,
-        "curriculumId": "a"
+        date: "February 2021",
+        info: `Developed a mobile e-bank app with React-Native, Expo and Redux as frameworks, used Paper for the styles.
+        Made the database using MySQL and Sequelize with Dbeaver and postman as helping tools.
+        Used Gmail API for e-mail authentication, fusionAuth for local autentication and expo API for loggin with biometricals, Bcrypt for encrypting the password in the database.`,
+        curriculumId: "a"
       },
       {
-        "id": "b",
-        position: "Full stack Developer",
+        id: "b",
+        position: "Academic experience - Full stack Developer",
         place: "Soy Henry",
-        date: "Feb 2021 - Argentina",
-        info: `Worked on an e-commerce web app with React Redux in the frontend, taking attention to write well maintained code from the beginning. - Made the database using Postgresql and Sequelize with Dbeaver and postman as helping tools. - Used passport Local and Bearer strategy with Json web token for verifying the user login to site. And Bcrypt for encrypting the password in the database.`,
-        "curriculumId": "a"
+        date: "January 2021",
+        info: `Worked on an e-commerce with Scrum as framework method and Trello to manage the project.
+        In the front-end all work was done with React, Redux and StyledComponents.
+        For the database we worked with Postgresql and Sequelize with Dbeaver and postman as helping tools.
+        Used passport Local and Bearer strategy with Json web token for verifying the user login to site. And Bcrypt for encrypting the password in the database.`,
+        curriculumId: "a"
       }],
       education: [{
-        "id": "a",
+        id: "a",
         title: "Full stack Developer",
         place: "Soy Henry",
-       
-        "curriculumId": "a"
+        date: "February 2021",
+        curriculumId: "a"
       },
       {
-        "id": "b",
+        id: "b",
         title: "JavaScript Algorithms and Data Structures",
         place: "freeCodeCamp",
-      
-        "curriculumId": "a"
+        date: "March 2021",
+        curriculumId: "a"
       }],
       summary: {
-        "id": "a",
-        description: `Full stack developer, proactive, fast learner with an advanced English level.`,
-        "curriculumId": "a"
+        id: "a",
+        description: `Full stack developer, proactive, fast learner, with proficent English level. Curious by nature.`,
+        curriculumId: "a"
       },
       skills: [
         {
-          "id": "a",
+          id: "a",
           area: "Coding",
-          tools: `StyledComponents Bootstrap JQuery JavaScript React Redux SQL Sequelize Postgresql Passport`,
-          "curriculumId": "a"
+          tools: `JavaScript React React-Native Redux SQL Sequelize Postgresql Passport StyledComponents Bootstrap `,
+          curriculumId: "a"
         },
         {
-          "id": "b",
+          id: "b",
           area: "Tools & Technologies",
           tools: `Visual Studio Code Figma Git npm `,
-          "curriculumId": "a"
+          curriculumId: "a"
         },
         {
-          "id": "c",
+          id: "c",
           area: "Project Management",
           tools: `Airtable Trello Scrum Agile`,
-          "curriculumId": "a"
+          curriculumId: "a"
         },
         {
-          "id": "d",
+          id: "d",
           area: "Languages",
-          tools: `Spanish(native) English(advanced)`,
-          "curriculumId": "a"
+          tools: `Spanish(native) English(proficent), Portuguese(Intermediate)`,
+          curriculumId: "a"
         }],
       passions: [
         {
-          "id": "a",
+          id: "a",
           area: "body",
-          description: `Healthy lifestyle, skateboarding and travel.`,
-          "curriculumId": "a"
+          description: `Healthy lifestyle, skateboarding, trial running and travel.`,
+          curriculumId: "a"
         },
         {
-          "id": "b",
+          id: "b",
           area: "mind",
           description: `Learning new tecnologies and languages.`,
-          "curriculumId": "a"
+          curriculumId: "a"
         },
       ]
     },
@@ -100,32 +105,32 @@ export default function initialState() {
       language: "spanish",
       experiences: [{
         "id": "c",
-        position: "Full stack Developer",
+        position: "Experiencia académica - Full stack Developer",
         place: "Soy Henry",
-        date: "Jan 2021 - Argentina",
-        info: `Creó una nueva aplicación de banco electrónico móvil con React-Native, Expo y Redux como frameworks y Paper para darle estilo. - Hice la base de datos usando MySQL y Sequelize con Dbeaver y cartero como herramientas de ayuda. - Se utilizó la API de Gmail para la autenticación de correo electrónico, fusionAuth para local API de autenticación y expo para loggin con biométricos, Bcrypt para cifrar la contraseña en la base de datos .`,
+        date: "Febrero 2021",
+        info: ` Desarrollé, utilizando la metodologia Scrum, una aplicación de banca electrónica móvil. Para el front-end utilizé  React-Native, Expo y Redux como frameworks. Para los estilos se utilizó Paper. En el back end; para la base de datos utilizé MySQL y Sequelize, con MySQL workbench y Postman como herramientas de ayuda. - Se utilizó la API de Gmail para la autenticación de correo electrónico, fusionAuth para la autenticación local del usuario y expo para loggin con biométricos, Bcrypt para cifrar la contraseña en la base de datos .`,
         "curriculumId": "b"
       },
       {
         "id": "d",
-        position: "Full stack Developer",
+        position: "Experiencia académica - Full stack Developer",
         place: "Soy Henry",
-        date: "Feb 2021 - Argentina",
-        info: `Trabajé en una aplicación web de comercio electrónico con React Redux en la interfaz, prestando atención a escribir código bien mantenido desde el principio. - Realicé la base de datos usando Postgresql y Sequelize con Dbeaver y cartero como herramientas de ayuda. - Se utilizó la estrategia de pasaporte local y portador con el token web Json para verificar el inicio de sesión del usuario en el sitio. Y Bcrypt para cifrar el contraseña en la base de datos.`,
+        date: "Enero 2021",
+        info: `Trabajé en una aplicación web de comercio electrónico con React-Redux, Se utilizó la metodoligía de trabajo Scrum con Trello como gestor del proyecto. Desarrollé la base de datos usando Postgresql y Sequelize con Dbeaver y Postman. Se utilizó Passport Local y Bearer strategy y JSON Web Tokens para verificar el inicio de sesión del usuario en el sitio. Con Bcrypt se cifró el contraseña del usuario en la base de datos.`,
         "curriculumId": "b"
       }],
       education: [{
         "id": "c",
         title: "Full stack Developer",
         place: "Soy Henry",
-        date: "Feb 2021 - Argentina",
+        date: "Febrero 2021",
         "curriculumId": "b"
       },
       {
         "id": "d",
         title: "JavaScript Algorithms and Data Structures",
         place: "freeCodeCamp",
-        date: "Feb 2021 - Argentina",
+        date: "Marzo 2021",
         "curriculumId": "b"
       }],
       summary: {
@@ -137,37 +142,37 @@ export default function initialState() {
         {
           "id": "e",
           area: "Coding",
-          tools: `StyledComponents Bootstrap JQuery JavaScript React Redux SQL Sequelize Postgresql Passport`,
+          tools: `JavaScript React Redux SQL Sequelize Postgresql Passport StyledComponents Bootstrap JQuery `,
           "curriculumId": "b"
         },
         {
           "id": "f",
-          area: "Tools & Technologies",
+          area: "Herramientas y tecnologias",
           tools: `Visual Studio Code Figma Git npm `,
           "curriculumId": "b"
         },
         {
           "id": "g",
-          area: "Project Management",
+          area: "Gestión de proyectos",
           tools: `Airtable Trello Scrum Agile`,
           "curriculumId": "b"
         },
         {
           "id": "h",
-          area: "Languages",
-          tools: `Spanish(native) English(advanced)`,
+          area: "Idiomas",
+          tools: `Español(nativo) Inglés(avanzado) Portugués(medio) `,
           "curriculumId": "b"
         }],
       passions: [
         {
           "id": "c",
-          area: "body",
-          description: `Vida sana, skateboard y viajar.`,
+          area: "cuerpo",
+          description: `Vida sana, skateboarding, trial running y viajar.`,
           "curriculumId": "b"
         },
         {
           "id": "d",
-          area: "mind",
+          area: "mente",
           description: `Aprender nuevas tecnologias e idiomas.`,
           "curriculumId": "b"
         },
