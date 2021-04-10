@@ -1,7 +1,7 @@
 # OUR-CV
 A  resume generator, were you can make your own curriculum and export it as PDF file.
 
-The Front-end is made with Node.js | React.js | Redux | StyledComponents.
+The Front-end is made with Node.js | React.js | Redux | StyledComponents.  
 For the Back-end I'm using MySQL | Sequelize | Passport.
 
 ## Web view
@@ -12,4 +12,3 @@ For the Back-end I'm using MySQL | Sequelize | Passport.
 
 [OUR-CV APP](https://our-cv-santiabo.vercel.app/)
 
-Feel Free to look at the code, any feedback is always wellcome! 
