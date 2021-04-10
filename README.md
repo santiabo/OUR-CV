@@ -1,5 +1,5 @@
 # OUR-CV
-A personal project under construction, it's basically a resume generator, were you can make your own curriculum using templates and export them as PDF.
+A  resume generator, were you can make your own curriculum and export it as PDF file.
 
 The Front-end is made with Node.js | React.js | Redux | StyledComponents.
 For the Back-end I'm using MySQL | Sequelize | Passport.
