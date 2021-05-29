@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const Nav = styled.nav` 
   background:#f6f6fe;
   display:flex;
+  padding: 0 5px;
   flex-direction:column;
-  align-items:center;
+  align-items:stretch;
   margin-top:15px;
   border-radius:8px;
   border: 1px solid #aabbbf;
