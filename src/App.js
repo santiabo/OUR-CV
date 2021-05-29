@@ -10,7 +10,7 @@ import {
   GlobalStyleBitter,
   GlobalStyleNews
 } from './globalStyles';
-
+// DEPLoY !
 function App() {
   
   const font = useSelector((state) => state.font.font)
